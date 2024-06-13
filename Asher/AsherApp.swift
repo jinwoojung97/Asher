@@ -25,7 +25,8 @@ struct AsherApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CustomTabbarView()
+            RootViewControllerRepresentable()
+                .ignoresSafeArea(.all)
         }
         .modelContainer(sharedModelContainer)
     }
