@@ -19,6 +19,7 @@ final class MainNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationBar.isHidden = true
         setViewControllers([rootViewController], animated: false)
     }
 }
@@ -48,6 +49,7 @@ public final class RootViewController: UITabBarController {
     private func commonInit() {
         setTabbar()
         setTabbarBind()
+        setUIViewAppearance()
     }
     
     private func setTabbar() {
@@ -74,6 +76,11 @@ public final class RootViewController: UITabBarController {
                 .bind(to: rx.selectedIndex)
                 .disposed(by: disposeBag)
         }
+    }
+    
+    private func setUIViewAppearance() {
+        UIView.appearance().isMultipleTouchEnabled = false
+        UIView.appearance().isExclusiveTouch = true
     }
     
     private func updateOrientations(selectedIndex: Int) {
