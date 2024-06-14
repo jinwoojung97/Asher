@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct MenuView: View {
-  let menu: HomeView.menu
+  let menu: MenuView.Menu
+  var onTap: (() -> Void)?
   
-  init(menu: HomeView.menu) {
+  @State private var isPressed: Bool = false
+  
+  init(menu: MenuView.Menu, onTap: (() -> Void)? = nil) {
     self.menu = menu
+    self.onTap = onTap
   }
   
   var body: some View {
     ZStack {
       Rectangle()
         .foregroundStyle(.sub1)
+      
         .addBorder(.border, width: 1, cornerRadius: 10)
       
       VStack(spacing: 12) {
@@ -46,6 +51,19 @@ struct MenuView: View {
     .frame(height: 115)
     .frame(maxWidth: .infinity)
     .padding(.horizontal, 4)
+    .scaleEffect(isPressed ? 0.95 : 1.0)
+    .animation(.easeInOut(duration: 0.2), value: isPressed)
+    .onTapGesture {
+      withAnimation {
+        isPressed = true
+      }
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        withAnimation {
+          isPressed = false
+        }
+        onTap?()
+      }
+    }
   }
 }
 

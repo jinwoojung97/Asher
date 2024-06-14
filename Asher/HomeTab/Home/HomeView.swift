@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+import ComposableArchitecture
+
 struct HomeView: View {
   @Environment(\.horizontalSizeClass) var horizontalSizeClass
   @State var store = Store(initialState: HomeFeature.State(name: "연학")) { HomeFeature() }
@@ -43,6 +45,7 @@ struct HomeView: View {
           menuView(viewStore: viewStore)
         }
       }
+      .scrollIndicators(.hidden)
     }
     .padding(.bottom, 75)
   }
@@ -57,68 +60,15 @@ struct HomeView: View {
     }
     
     LazyVGrid(columns: columns, spacing: 16) {
-      ForEach(menu.allCases, id: \.hashValue) { menu in
-        MenuView(menu: menu)
-          .onTapGesture { print("Button \(menu.title) tapped") }
+      ForEach(MenuView.Menu.allCases, id: \.hashValue) { menu in
+        MenuView(menu: menu) {
+          print("Button \(menu.title) tapped")
+        }
       }
     }
     .padding()
   }
 }
 
-extension HomeView {
-  enum menu: CaseIterable {
-    case checkMood
-    case meditation
-    case chat
-    
-    var title: String {
-      switch self {
-      case .checkMood:
-        "기분 체크"
-      case .meditation:
-        "명상"
-      case .chat:
-        "툭톡"
-      }
-    }
-    
-    var subtitle: String {
-      switch self {
-      case .checkMood: "오늘의 기분을 체크해요."
-      case .meditation: "마음의 안정을 찾아요."
-      case .chat: "툭터놓고 talk 해요."
-      }
-    }
-    
-    var icon: Image {
-      switch self {
-      case .checkMood: Image(.mood)
-      case .meditation: Image(.meditate)
-      case .chat: Image(.chat)
-      }
-    }
-  }
-}
 
-import ComposableArchitecture
 
-struct HomeFeature: Reducer {
-  struct State: Equatable {
-    var name: String
-    var calendarHeight: CGFloat = .zero
-  }
-  
-  enum Action: Equatable {
-    case setCalendarHeight(CGFloat)
-  }
-  
-  func reduce(into state: inout State, action: Action) -> Effect<Action> {
-    switch action {
-    case .setCalendarHeight(let height):
-      state.calendarHeight = height
-      
-      return .none
-    }
-  }
-}
