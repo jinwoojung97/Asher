@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */; };
 		EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */; };
+		EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDF2C1C1F47004D1AA1 /* View +.swift */; };
+		EF16DDE22C1C2997004D1AA1 /* AlignmentedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE12C1C2997004D1AA1 /* AlignmentedText.swift */; };
+		EF16DDE42C1C2BBF004D1AA1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */; };
+		EF16DDEA2C1C2C32004D1AA1 /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */; };
+		EF16DDEC2C1C2C72004D1AA1 /* HomeView + Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDEB2C1C2C72004D1AA1 /* HomeView + Menu.swift */; };
+		EF16DDEE2C1C2C8F004D1AA1 /* MenuView + Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */; };
 		EF2C947E2C16CB24003B2304 /* NotoSansKR-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94752C16CB21003B2304 /* NotoSansKR-SemiBold.ttf */; };
 		EF2C947F2C16CB24003B2304 /* NotoSansKR-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94762C16CB21003B2304 /* NotoSansKR-Light.ttf */; };
 		EF2C94802C16CB24003B2304 /* NotoSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94772C16CB22003B2304 /* NotoSansKR-Regular.ttf */; };
@@ -64,6 +70,12 @@
 /* Begin PBXFileReference section */
 		EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTabbar + Tab.swift"; sourceTree = "<group>"; };
 		EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		EF16DDDF2C1C1F47004D1AA1 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
+		EF16DDE12C1C2997004D1AA1 /* AlignmentedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentedText.swift; sourceTree = "<group>"; };
+		EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
+		EF16DDEB2C1C2C72004D1AA1 /* HomeView + Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView + Menu.swift"; sourceTree = "<group>"; };
+		EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuView + Menu.swift"; sourceTree = "<group>"; };
 		EF2C94752C16CB21003B2304 /* NotoSansKR-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-SemiBold.ttf"; sourceTree = "<group>"; };
 		EF2C94762C16CB21003B2304 /* NotoSansKR-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.ttf"; sourceTree = "<group>"; };
 		EF2C94772C16CB22003B2304 /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
@@ -130,6 +142,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF16DDDE2C1C1F3C004D1AA1 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				EF16DDDF2C1C1F47004D1AA1 /* View +.swift */,
+				EF16DDE12C1C2997004D1AA1 /* AlignmentedText.swift */,
+			);
+			name = SwiftUI;
+			sourceTree = "<group>";
+		};
+		EF16DDE52C1C2BC6004D1AA1 /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				EF16DDE72C1C2C06004D1AA1 /* Home */,
+				EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */,
+				EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */,
+			);
+			path = HomeTab;
+			sourceTree = "<group>";
+		};
+		EF16DDE62C1C2BE5004D1AA1 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				EF3C753E2C12DA73002E58D3 /* ContentView.swift */,
+				EF3C75402C12DA73002E58D3 /* Item.swift */,
+			);
+			path = SwiftData;
+			sourceTree = "<group>";
+		};
+		EF16DDE72C1C2C06004D1AA1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EF3C754E2C12DE8B002E58D3 /* HomeView.swift */,
+				EF16DDEB2C1C2C72004D1AA1 /* HomeView + Menu.swift */,
+				EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		EF2C946E2C16C7F4003B2304 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,9 +218,8 @@
 				EF56BB962C16DD0E0045394F /* Support */,
 				EF56BB952C16DD020045394F /* Utils */,
 				EF3C753C2C12DA73002E58D3 /* AsherApp.swift */,
-				EF3C753E2C12DA73002E58D3 /* ContentView.swift */,
-				EF3C75402C12DA73002E58D3 /* Item.swift */,
-				EF3C754E2C12DE8B002E58D3 /* HomeView.swift */,
+				EF16DDE62C1C2BE5004D1AA1 /* SwiftData */,
+				EF16DDE52C1C2BC6004D1AA1 /* HomeTab */,
 				EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */,
 				EF56BB822C16DB3D0045394F /* RootViewController */,
 			);
@@ -243,6 +292,7 @@
 		EF56BBA62C16DDD30045394F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EF16DDDE2C1C1F3C004D1AA1 /* SwiftUI */,
 				EF56BBA72C16DDD30045394F /* Date +.swift */,
 				EF56BBA82C16DDD30045394F /* Reactive +.swift */,
 				EF56BBA92C16DDD30045394F /* Toast +.swift */,
@@ -380,13 +430,17 @@
 				EF56BBD32C16DDD40045394F /* UIViewController +.swift in Sources */,
 				EF56BBCC2C16DDD40045394F /* UIScrollView +.swift in Sources */,
 				EF56BBD02C16DDD40045394F /* CACornerMask +.swift in Sources */,
+				EF16DDE42C1C2BBF004D1AA1 /* MenuView.swift in Sources */,
 				EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */,
 				EF3C753F2C12DA73002E58D3 /* ContentView.swift in Sources */,
 				EF56BB932C16DCA10045394F /* CustomTabbar.swift in Sources */,
 				EF56BBC62C16DDD40045394F /* Date +.swift in Sources */,
 				EF56BBCE2C16DDD40045394F /* UIDevice +.swift in Sources */,
+				EF16DDEC2C1C2C72004D1AA1 /* HomeView + Menu.swift in Sources */,
+				EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */,
 				EF56BBC52C16DDD40045394F /* CloudKitManager.swift in Sources */,
 				EF56BBBE2C16DDD30045394F /* IndicatorManager.swift in Sources */,
+				EF16DDE22C1C2997004D1AA1 /* AlignmentedText.swift in Sources */,
 				EF56BBCB2C16DDD40045394F /* UILabel +.swift in Sources */,
 				EF56BBC72C16DDD40045394F /* Reactive +.swift in Sources */,
 				EF56BB912C16DBAE0045394F /* RootViewController.swift in Sources */,
@@ -401,7 +455,9 @@
 				EF56BBC42C16DDD40045394F /* UpdateManager.swift in Sources */,
 				EF56BBC32C16DDD40045394F /* NetworkManager.swift in Sources */,
 				EF56BBBC2C16DDD30045394F /* FontManager.swift in Sources */,
+				EF16DDEA2C1C2C32004D1AA1 /* HomeFeature.swift in Sources */,
 				EF56BBC82C16DDD40045394F /* Toast +.swift in Sources */,
+				EF16DDEE2C1C2C8F004D1AA1 /* MenuView + Menu.swift in Sources */,
 				EF56BBCF2C16DDD40045394F /* UIImageView +.swift in Sources */,
 				EF56BBD52C16DDD40045394F /* Array +.swift in Sources */,
 				EF3C753D2C12DA73002E58D3 /* AsherApp.swift in Sources */,

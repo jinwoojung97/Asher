@@ -28,9 +28,14 @@ final class CustomTabBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        addBorder([.top], color: .border, width: 1)
+    }
+    
     private func commonInit() {
         backgroundColor = .main1
-        addBorder(color: .border)
         
         addComponent()
         setConstraints()
