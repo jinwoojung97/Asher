@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalendarTestView: View {
+struct CalendarView: View {
   @State private var selectedMonth: Date = .currentMonth
   
     var body: some View {
@@ -147,7 +147,7 @@ struct CalendarTestView: View {
 
 
 #Preview {
-    CalendarTestView()
+  CalendarView()
 }
 
 struct Day: Identifiable {
