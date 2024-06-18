@@ -8,6 +8,16 @@
 import Foundation
 
 public extension Date {
+    
+    static var currentMonth: Date {
+        guard case let calendar = Calendar.current,
+              case let components = calendar.dateComponents([.month, .year], from: .now),
+              let currentMonth = calendar.date(from: components)
+        else { return .now }
+        
+        return currentMonth
+    }
+    
     func toString() -> String {
         let formatter = DateFormatter()
         

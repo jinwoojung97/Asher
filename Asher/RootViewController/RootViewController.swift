@@ -94,10 +94,6 @@ public final class RootViewController: UITabBarController {
             target: nil,
             action: nil)
         
-//        backButtonItem.setTitleTextAttributes(
-//            [.font: FontManager.shared.pretendard(weight: .semiBold, size: 18)],
-//            for: .normal)
-        
         return backButtonItem
     }
 }

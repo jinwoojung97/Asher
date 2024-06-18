@@ -65,6 +65,7 @@
 		EF56BBD62C16DDD40045394F /* Encodable +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBB82C16DDD30045394F /* Encodable +.swift */; };
 		EF56BBD72C16DDD40045394F /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBB92C16DDD30045394F /* String +.swift */; };
 		EF56BBD82C16DDD40045394F /* I18N.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBBB2C16DDD30045394F /* I18N.swift */; };
+		EF81E46C2C20187000B11A46 /* CalendarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46B2C20187000B11A46 /* CalendarTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		EF56BBB82C16DDD30045394F /* Encodable +.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable +.swift"; sourceTree = "<group>"; };
 		EF56BBB92C16DDD30045394F /* String +.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
 		EF56BBBB2C16DDD30045394F /* I18N.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18N.swift; sourceTree = "<group>"; };
+		EF81E46B2C20187000B11A46 /* CalendarTestView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CalendarTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				EF16DDE62C1C2BE5004D1AA1 /* SwiftData */,
 				EF16DDE52C1C2BC6004D1AA1 /* HomeTab */,
 				EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */,
+				EF81E46A2C20183E00B11A46 /* CalendarTest */,
 				EF56BB822C16DB3D0045394F /* RootViewController */,
 			);
 			path = Asher;
@@ -330,6 +333,14 @@
 			path = Localize;
 			sourceTree = "<group>";
 		};
+		EF81E46A2C20183E00B11A46 /* CalendarTest */ = {
+			isa = PBXGroup;
+			children = (
+				EF81E46B2C20187000B11A46 /* CalendarTestView.swift */,
+			);
+			path = CalendarTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -434,6 +445,7 @@
 				EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */,
 				EF3C753F2C12DA73002E58D3 /* ContentView.swift in Sources */,
 				EF56BB932C16DCA10045394F /* CustomTabbar.swift in Sources */,
+				EF81E46C2C20187000B11A46 /* CalendarTestView.swift in Sources */,
 				EF56BBC62C16DDD40045394F /* Date +.swift in Sources */,
 				EF56BBCE2C16DDD40045394F /* UIDevice +.swift in Sources */,
 				EF16DDEC2C1C2C72004D1AA1 /* HomeView + Menu.swift in Sources */,
