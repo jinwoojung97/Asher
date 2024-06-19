@@ -13,7 +13,6 @@
 		EF16DDE22C1C2997004D1AA1 /* AlignmentedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE12C1C2997004D1AA1 /* AlignmentedText.swift */; };
 		EF16DDE42C1C2BBF004D1AA1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */; };
 		EF16DDEA2C1C2C32004D1AA1 /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */; };
-		EF16DDEC2C1C2C72004D1AA1 /* HomeView + Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDEB2C1C2C72004D1AA1 /* HomeView + Menu.swift */; };
 		EF16DDEE2C1C2C8F004D1AA1 /* MenuView + Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */; };
 		EF2C947E2C16CB24003B2304 /* NotoSansKR-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94752C16CB21003B2304 /* NotoSansKR-SemiBold.ttf */; };
 		EF2C947F2C16CB24003B2304 /* NotoSansKR-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94762C16CB21003B2304 /* NotoSansKR-Light.ttf */; };
@@ -29,7 +28,6 @@
 		EF3C75412C12DA73002E58D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3C75402C12DA73002E58D3 /* Item.swift */; };
 		EF3C75432C12DA74002E58D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3C75422C12DA74002E58D3 /* Assets.xcassets */; };
 		EF3C75462C12DA74002E58D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3C75452C12DA74002E58D3 /* Preview Assets.xcassets */; };
-		EF3C754F2C12DE8B002E58D3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3C754E2C12DE8B002E58D3 /* HomeView.swift */; };
 		EF3C75522C12E1C4002E58D3 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EF3C75512C12E1C3002E58D3 /* ComposableArchitecture */; };
 		EF3C75552C12E238002E58D3 /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = EF3C75542C12E238002E58D3 /* TCACoordinators */; };
 		EF56BB852C16DB670045394F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EF56BB842C16DB670045394F /* RxCocoa */; };
@@ -65,8 +63,8 @@
 		EF56BBD62C16DDD40045394F /* Encodable +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBB82C16DDD30045394F /* Encodable +.swift */; };
 		EF56BBD72C16DDD40045394F /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBB92C16DDD30045394F /* String +.swift */; };
 		EF56BBD82C16DDD40045394F /* I18N.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBBB2C16DDD30045394F /* I18N.swift */; };
-		EF81E46C2C20187000B11A46 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46B2C20187000B11A46 /* CalendarView.swift */; };
-		EF81E46E2C210BDA00B11A46 /* CalendarView +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46D2C210BDA00B11A46 /* CalendarView +.swift */; };
+		EF81E46C2C20187000B11A46 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46B2C20187000B11A46 /* HomeView.swift */; };
+		EF81E46E2C210BDA00B11A46 /* Home + Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46D2C210BDA00B11A46 /* Home + Const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +74,6 @@
 		EF16DDE12C1C2997004D1AA1 /* AlignmentedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentedText.swift; sourceTree = "<group>"; };
 		EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
-		EF16DDEB2C1C2C72004D1AA1 /* HomeView + Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeView + Menu.swift"; sourceTree = "<group>"; };
 		EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuView + Menu.swift"; sourceTree = "<group>"; };
 		EF2C94752C16CB21003B2304 /* NotoSansKR-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-SemiBold.ttf"; sourceTree = "<group>"; };
 		EF2C94762C16CB21003B2304 /* NotoSansKR-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.ttf"; sourceTree = "<group>"; };
@@ -95,7 +92,6 @@
 		EF3C75452C12DA74002E58D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF3C75472C12DA74002E58D3 /* Asher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Asher.entitlements; sourceTree = "<group>"; };
 		EF3C75482C12DA74002E58D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF3C754E2C12DE8B002E58D3 /* HomeView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF56BB902C16DBAE0045394F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		EF56BB922C16DCA10045394F /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		EF56BB9C2C16DDD30045394F /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -124,8 +120,8 @@
 		EF56BBB82C16DDD30045394F /* Encodable +.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable +.swift"; sourceTree = "<group>"; };
 		EF56BBB92C16DDD30045394F /* String +.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
 		EF56BBBB2C16DDD30045394F /* I18N.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18N.swift; sourceTree = "<group>"; };
-		EF81E46B2C20187000B11A46 /* CalendarView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		EF81E46D2C210BDA00B11A46 /* CalendarView +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarView +.swift"; sourceTree = "<group>"; };
+		EF81E46B2C20187000B11A46 /* HomeView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EF81E46D2C210BDA00B11A46 /* Home + Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home + Const.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,8 +173,8 @@
 		EF16DDE72C1C2C06004D1AA1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				EF3C754E2C12DE8B002E58D3 /* HomeView.swift */,
-				EF16DDEB2C1C2C72004D1AA1 /* HomeView + Menu.swift */,
+				EF81E46D2C210BDA00B11A46 /* Home + Const.swift */,
+				EF81E46B2C20187000B11A46 /* HomeView.swift */,
 				EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */,
 			);
 			path = Home;
@@ -225,7 +221,6 @@
 				EF16DDE62C1C2BE5004D1AA1 /* SwiftData */,
 				EF16DDE52C1C2BC6004D1AA1 /* HomeTab */,
 				EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */,
-				EF81E46A2C20183E00B11A46 /* CalendarTest */,
 				EF56BB822C16DB3D0045394F /* RootViewController */,
 			);
 			path = Asher;
@@ -335,15 +330,6 @@
 			path = Localize;
 			sourceTree = "<group>";
 		};
-		EF81E46A2C20183E00B11A46 /* CalendarTest */ = {
-			isa = PBXGroup;
-			children = (
-				EF81E46B2C20187000B11A46 /* CalendarView.swift */,
-				EF81E46D2C210BDA00B11A46 /* CalendarView +.swift */,
-			);
-			path = CalendarTest;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,7 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF56BBD62C16DDD40045394F /* Encodable +.swift in Sources */,
-				EF81E46E2C210BDA00B11A46 /* CalendarView +.swift in Sources */,
+				EF81E46E2C210BDA00B11A46 /* Home + Const.swift in Sources */,
 				EF56BBC12C16DDD30045394F /* HapticManager.swift in Sources */,
 				EF56BBD32C16DDD40045394F /* UIViewController +.swift in Sources */,
 				EF56BBCC2C16DDD40045394F /* UIScrollView +.swift in Sources */,
@@ -449,10 +435,9 @@
 				EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */,
 				EF3C753F2C12DA73002E58D3 /* ContentView.swift in Sources */,
 				EF56BB932C16DCA10045394F /* CustomTabbar.swift in Sources */,
-				EF81E46C2C20187000B11A46 /* CalendarView.swift in Sources */,
+				EF81E46C2C20187000B11A46 /* HomeView.swift in Sources */,
 				EF56BBC62C16DDD40045394F /* Date +.swift in Sources */,
 				EF56BBCE2C16DDD40045394F /* UIDevice +.swift in Sources */,
-				EF16DDEC2C1C2C72004D1AA1 /* HomeView + Menu.swift in Sources */,
 				EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */,
 				EF56BBC52C16DDD40045394F /* CloudKitManager.swift in Sources */,
 				EF56BBBE2C16DDD30045394F /* IndicatorManager.swift in Sources */,
@@ -465,7 +450,6 @@
 				EF56BBD22C16DDD40045394F /* UITextView +.swift in Sources */,
 				EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */,
 				EF56BBCD2C16DDD40045394F /* UIApplication +.swift in Sources */,
-				EF3C754F2C12DE8B002E58D3 /* HomeView.swift in Sources */,
 				EF56BBC02C16DDD30045394F /* UserNotiManager.swift in Sources */,
 				EF3C75412C12DA73002E58D3 /* Item.swift in Sources */,
 				EF56BBC42C16DDD40045394F /* UpdateManager.swift in Sources */,

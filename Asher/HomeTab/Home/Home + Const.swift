@@ -1,5 +1,5 @@
 //
-//  CalendarView +.swift
+//  HomeView +.swift
 //  Asher
 //
 //  Created by chuchu on 6/18/24.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-extension CalendarView {
+extension HomeView {
     struct Const {
+        static let welcomeMessageHeight: CGFloat = 50.0
         static let calendarTitleViewHeight: CGFloat = 75.0
         static let weekLabelHeight: CGFloat = 30.0
         static let horizontalPadding: CGFloat = 16.0

@@ -25,9 +25,8 @@ struct AsherApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            RootViewControllerRepresentable()
-//                .ignoresSafeArea(.all)
-            CalendarView()
+            RootViewControllerRepresentable()
+                .ignoresSafeArea(.all)
             
         }
         .modelContainer(sharedModelContainer)
