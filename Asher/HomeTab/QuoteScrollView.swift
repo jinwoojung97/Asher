@@ -28,18 +28,18 @@ struct QuoteScrollView: View {
           let width = proxy.size.width
           LoopingScrollView(width: width, spacing: 16, items: items) { item in
             VStack {
-              Text(item.content)
+              Text(item.quote)
                 .font(.notoSans(width: .bold, size: 18))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.subtitleOn)
                 .frame(maxWidth: .infinity)
-                .padding(.top, 8)
+                .padding(.all, 8)
               
               Text(item.author)
-                .font(.footnote)
-                .foregroundColor(.gray)
+                .font(.notoSans(width: .light, size: 14))
+                .foregroundColor(.subtitle)
                 .frame(maxWidth: .infinity)
-                .padding(.bottom, 8)
+                .padding(.all, 8)
             }
             .frame(maxHeight: .infinity)
             .background(.main1)
