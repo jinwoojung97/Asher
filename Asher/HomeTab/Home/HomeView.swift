@@ -25,7 +25,14 @@ struct HomeView: View {
         VStack(spacing: 0) {
           calendarView(viewStore: viewStore)
           
+          if let category = selectedDay.category {
+            checkMoodView(category: category, viewStore: viewStore)
+          }
+          
           menuView(viewStore: viewStore)
+          
+          quoteView(viewStore: viewStore)
+          
           VStack(spacing: 15) {
             ForEach(1...15, id: \.self) { _ in
               cardView()
@@ -96,16 +103,18 @@ struct HomeView: View {
             }
           }
           .frame(maxWidth: .infinity, alignment: .leading)
-          .overlay(alignment: .topTrailing) {
-            HStack(spacing: 16) {
+          .overlay(alignment: .bottomTrailing) {
+            HStack(spacing: 0) {
               Button("", systemImage: "chevron.left") {
                 monthUpdate(false)
               }
+              .frame(width: 50, height: 50)
               .contentShape(.rect)
               
               Button("", systemImage: "chevron.right") {
                 monthUpdate()
               }
+              .frame(width: 50, height: 50)
               .contentShape(.rect)
             }
             .offset(x: 150 * progress)
@@ -126,24 +135,31 @@ struct HomeView: View {
           
           LazyVGrid(columns: Array(repeating: GridItem(spacing: 0), count: 7), spacing: 0) {
             ForEach(selectedMonthDates) { day in
-              Text(day.shortSymbol)
-                .font(.notoSans(width: .medium, size: 15))
-                .foregroundStyle(day.ignored ? .subtitle: .subtitleOn)
-                .frame(maxWidth: .infinity)
-                .frame(height: 50)
-                .overlay(alignment: .bottom) {
-                  Circle()
-                    .fill(.white)
-                    .frame(width: 5, height: 5)
-                    .opacity(Calendar.current.isDate(day.date, inSameDayAs: selectedDay) ? 1: 0)
-                    .offset(y: progress * -2)
-                }
-                .contentShape(.rect)
-                .onTapGesture {
-                  if day.ignored { monthUpdate(selectedDay < day.date) }
-                  
-                  selectedDay = day.date
-                }
+                Text(day.shortSymbol)
+                  .font(.notoSans(width: .medium, size: 15))
+                  .foregroundStyle(day.ignored ? .subtitle: .subtitleOn)
+                  .frame(maxWidth: .infinity)
+                  .frame(height: 50)
+                  .shadow(radius: day.ignored ? 0: 2)
+                  .overlay {
+                    Circle()
+                      .fill(.red)
+                      .frame(width: 25, height: 25)
+                      .opacity(Calendar.current.isDate(day.date, inSameDayAs: selectedDay) ? 0.2: 0)
+                  }
+                  .overlay(alignment: .bottom) {
+                    if let mood = day.mood {
+                      Text(mood.emoji)
+                        .font(.notoSans(width: .medium, size: 10))
+                        .opacity(0.8)
+                    }
+                  }
+                  .contentShape(.rect)
+                  .onTapGesture {
+                    if day.ignored { monthUpdate(selectedDay < day.date) }
+                    
+                    selectedDay = day.date
+              }
             }
           }
           .frame(height: calendarGridHeight - (calendarGridHeight - 50) * progress, alignment: .top)
@@ -189,9 +205,26 @@ struct HomeView: View {
     .padding()
   }
   
+  @ViewBuilder
+  private func checkMoodView(
+    category: Date.DayCategory,
+    viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
+  ) -> some View {
+    VStack() {
+      Text(category.title)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    .padding()
+  }
+  
+  @ViewBuilder
+  private func quoteView(
+    viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
+  ) -> some View { QuoteScrollView() }
+  
   var drag: some Gesture {
     DragGesture()
-      .onEnded { monthUpdate($0.startLocation.x < $0.location.x) }
+      .onEnded { monthUpdate($0.startLocation.x > $0.location.x) }
   }
   func format(_ format: String) -> String {
     let formatter = DateFormatter()
@@ -235,12 +268,6 @@ struct HomeView: View {
   HomeView()
 }
 
-struct Day: Identifiable {
-  var id = UUID()
-  var shortSymbol: String
-  var date: Date
-  var ignored: Bool = false
-}
 
 extension View {
   func extractDates(_ month: Date) -> [Day] {
@@ -268,7 +295,7 @@ extension View {
     
     range.forEach { date in
       let shortSymbol = formatter.string(from: date)
-      days.append(Day(shortSymbol: shortSymbol, date: date))
+      days.append(Day(shortSymbol: shortSymbol, date: date, mood: .happy))
     }
     
     if lastWeekDay > 0 {
