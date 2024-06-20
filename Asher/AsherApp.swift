@@ -27,6 +27,7 @@ struct AsherApp: App {
         WindowGroup {
             RootViewControllerRepresentable()
                 .ignoresSafeArea(.all)
+//            ContentView()
             
         }
         .modelContainer(sharedModelContainer)
