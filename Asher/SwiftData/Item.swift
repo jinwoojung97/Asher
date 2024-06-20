@@ -10,9 +10,11 @@ import SwiftData
 
 @Model
 final class Item {
-    var timestamp: Date
+    var date: String
+    var mood: Mood?
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(date: String, mood: Mood?) {
+        self.date = date
+        self.mood = mood
     }
 }
