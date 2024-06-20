@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct Day: Identifiable {
+  var id = UUID()
+  var shortSymbol: String
+  var date: Date
+  var ignored: Bool = false
+  var mood: Mood?
+}

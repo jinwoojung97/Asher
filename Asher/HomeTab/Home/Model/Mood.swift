@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+enum Mood: Codable {
+  case happy
+  case sad
+  case angry
+  
+  var emoji: String {
+    switch self {
+    case .happy: "😁"
+    case .sad: "😢"
+    case .angry: "😡"
+    }
+  }
+}
