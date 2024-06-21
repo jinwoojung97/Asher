@@ -17,11 +17,11 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at)")
-                    } label: {
                         if let mood = item.mood {
                             Text(mood.emoji)
                         }
+                    } label: {
+                        Text(item.date)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -31,9 +31,11 @@ struct ContentView: View {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: {
+                        addItem(date: .now)
+                    }, label: {
                         Label("Add Item", systemImage: "plus")
-                    }
+                    })
                 }
             }
         } detail: {
@@ -41,10 +43,19 @@ struct ContentView: View {
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(date: "wow", mood: .angry)
-            modelContext.insert(newItem)
+    private func addItem(date: Date) {
+        let dayString = date.toDayString()
+        let fetchPredicate = #Predicate<Item> { $0.date == dayString }
+        let descriptor = FetchDescriptor(predicate: fetchPredicate)
+        do {
+            if let date = try modelContext.fetch(descriptor).first {
+                date.mood = .sad
+            } else {
+                let newItem = Item(date: dayString, mood: .happy)
+                modelContext.insert(newItem)
+            }
+        } catch {
+            print(error.localizedDescription)
         }
     }
 
