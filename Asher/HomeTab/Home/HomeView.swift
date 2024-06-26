@@ -6,18 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 import ComposableArchitecture
 
 struct HomeView: View {
   @Environment(\.horizontalSizeClass) var horizontalSizeClass
   @State var store = Store(initialState: HomeFeature.State(name: "연학")) { HomeFeature() }
-  @State private var selectedMonth: Date = .currentMonth
-  @State private var selectedDay: Date = .now
   
   var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-      let maxHeight = calendarHeight - (Const.calendarTitleViewHeight + Const.weekLabelHeight +
+      let maxHeight = viewStore.state.calendarHeight - (Const.calendarTitleViewHeight + Const.weekLabelHeight +
                                         UIApplication.shared.safeAreaInset.top + Const.topPadding +
                                         Const.bottomPadding)
       
@@ -25,7 +24,7 @@ struct HomeView: View {
         VStack(spacing: 0) {
           calendarView(viewStore: viewStore)
           
-          if let category = selectedDay.category {
+          if let category = viewStore.state.selectedDay.category {
             checkMoodView(category: category, viewStore: viewStore)
           }
           
@@ -45,6 +44,7 @@ struct HomeView: View {
       .scrollIndicators(.hidden)
       .scrollTargetBehavior(CustomScrollBehavior(maxHeight: maxHeight))
       .padding(.bottom, 75)
+      .onAppear { viewStore.send(.fetchAll) }
     }
   }
   
@@ -89,7 +89,7 @@ struct HomeView: View {
           .frame(height: Const.welcomeMessageHeight)
           .foregroundStyle(.subtitleOn)
         
-        Text(currentMonth)
+        Text(viewStore.state.currentMonth)
           .font(.notoSans(width: .black, size: 35 - (10 * progress)))
           .offset(y: -50 * progress)
           .frame(maxHeight: .infinity, alignment: .bottom)
@@ -97,7 +97,7 @@ struct HomeView: View {
             GeometryReader { proxy in
               let size = proxy.size
               
-              Text(year)
+              Text(viewStore.state.year)
                 .font(.notoSans(width: .bold, size: 25 - (10 * progress)))
                 .offset(x: (size.width + 5) * progress)
             }
@@ -106,13 +106,13 @@ struct HomeView: View {
           .overlay(alignment: .bottomTrailing) {
             HStack(spacing: 0) {
               Button("", systemImage: "chevron.left") {
-                monthUpdate(false)
+                viewStore.send(.updateMonth(false))
               }
               .frame(width: 50, height: 50)
               .contentShape(.rect)
               
               Button("", systemImage: "chevron.right") {
-                monthUpdate()
+                viewStore.send(.updateMonth(true))
               }
               .frame(width: 50, height: 50)
               .contentShape(.rect)
@@ -134,7 +134,7 @@ struct HomeView: View {
           .frame(height: Const.weekLabelHeight, alignment: .bottom)
           
           LazyVGrid(columns: Array(repeating: GridItem(spacing: 0), count: 7), spacing: 0) {
-            ForEach(selectedMonthDates) { day in
+            ForEach(viewStore.state.selectedMonthDates) { day in
                 Text(day.shortSymbol)
                   .font(.notoSans(width: .medium, size: 15))
                   .foregroundStyle(day.ignored ? .subtitle: .subtitleOn)
@@ -145,7 +145,7 @@ struct HomeView: View {
                     Circle()
                       .fill(.red)
                       .frame(width: 25, height: 25)
-                      .opacity(Calendar.current.isDate(day.date, inSameDayAs: selectedDay) ? 0.2: 0)
+                      .opacity(Calendar.current.isDate(day.date, inSameDayAs: viewStore.state.selectedDay) ? 0.2: 0) // TODO: feature로 옮기기
                   }
                   .overlay(alignment: .bottom) {
                     if let mood = day.mood {
@@ -156,14 +156,18 @@ struct HomeView: View {
                   }
                   .contentShape(.rect)
                   .onTapGesture {
-                    if day.ignored { monthUpdate(selectedDay < day.date) }
+                    if day.ignored {
+                      let increment = viewStore.state.selectedDay < day.date
+                      viewStore.send(.updateMonth(increment))
+                    }
+                    viewStore.send(.selecteDay(day.date))
                     
-                    selectedDay = day.date
+                    viewStore.send(.addMood(day.date, .sad))
               }
             }
           }
-          .frame(height: calendarGridHeight - (calendarGridHeight - 50) * progress, alignment: .top)
-          .offset(y: monthProgress * -50 * progress)
+          .frame(height: viewStore.state.calendarGridHeight - (viewStore.state.calendarGridHeight - 50) * progress, alignment: .top)
+          .offset(y: viewStore.state.monthProgress * -50 * progress)
           .contentShape(.rect)
           .clipped()
         }
@@ -182,7 +186,7 @@ struct HomeView: View {
       .offset(y: -minY)
       .gesture(drag)
     }
-    .frame(height: calendarHeight)
+    .frame(height: viewStore.state.calendarHeight)
     .zIndex(100)
   }
   
@@ -198,7 +202,7 @@ struct HomeView: View {
     LazyVGrid(columns: columns, spacing: 16) {
       ForEach(MenuView.Menu.allCases, id: \.hashValue) { menu in
         MenuView(menu: menu) {
-          print("Button \(menu.title) tapped")
+          viewStore.send(.menuTapped(menu))
         }
       }
     }
@@ -224,43 +228,8 @@ struct HomeView: View {
   
   var drag: some Gesture {
     DragGesture()
-      .onEnded { monthUpdate($0.startLocation.x > $0.location.x) }
+      .onEnded { store.send(.updateMonth($0.startLocation.x > $0.location.x))  }
   }
-  func format(_ format: String) -> String {
-    let formatter = DateFormatter()
-    formatter.dateFormat = format
-    
-    return formatter.string(from: selectedMonth)
-  }
-  
-  func monthUpdate(_ increment: Bool = true) {
-    guard case let calendar = Calendar.current,
-          let month = calendar.date(byAdding: .month, value: increment ? 1: -1, to: selectedMonth),
-          let day = calendar.date(byAdding: .month, value: increment ? 1: -1, to: selectedDay)
-    else { return }
-    
-    withAnimation {
-      selectedMonth = month
-      selectedDay = day
-    }
-  }
-  
-  var currentMonth: String { format("MMMM") }
-  var year: String { format("YYYY") }
-  var monthProgress: CGFloat {
-    let calendar = Calendar.current
-    if let index = selectedMonthDates
-      .firstIndex(where: { calendar.isDate($0.date, inSameDayAs: selectedDay) }) {
-      return CGFloat(index / 7).rounded()
-    }
-    
-    return 1.0
-  }
-  var selectedMonthDates: [Day] { extractDates(selectedMonth) }
-  var calendarGridHeight: CGFloat { CGFloat(selectedMonthDates.count / 7) * 50 }
-  var calendarHeight: CGFloat { Const.calendarTitleViewHeight + Const.weekLabelHeight +
-    UIApplication.shared.safeAreaInset.top + Const.topPadding + Const.bottomPadding +
-    calendarGridHeight + Const.welcomeMessageHeight }
 }
 
 
@@ -268,48 +237,6 @@ struct HomeView: View {
   HomeView()
 }
 
-
-extension View {
-  func extractDates(_ month: Date) -> [Day] {
-    var days: [Day] = []
-    let calendar = Calendar.current
-    let formatter = DateFormatter()
-    formatter.dateFormat = "dd"
-    
-    guard let range = calendar
-      .range(of: .day, in: .month, for: month)?
-      .compactMap({ return calendar.date(byAdding: .day, value: $0 - 1, to: month) }),
-          let rangeFirst = range.first,
-          let rangeLast = range.last
-    else { return days }
-    
-    let firstWeekDay = calendar.component(.weekday, from: rangeFirst)
-    let lastWeekDay = 7 - calendar.component(.weekday, from: rangeLast)
-    
-    for index in Array(0..<firstWeekDay - 1).reversed() {
-      guard let date = calendar.date(byAdding: .day, value: -index - 1, to: rangeFirst)
-      else { return days }
-      let shortSymbol = formatter.string(from: date)
-      days.append(Day(shortSymbol: shortSymbol, date: date, ignored: true))
-    }
-    
-    range.forEach { date in
-      let shortSymbol = formatter.string(from: date)
-      days.append(Day(shortSymbol: shortSymbol, date: date, mood: .happy))
-    }
-    
-    if lastWeekDay > 0 {
-      for index in Array(0..<lastWeekDay) {
-        guard let date = calendar.date(byAdding: .day, value: index + 1, to: rangeLast)
-        else { return days }
-        let shortSymbol = formatter.string(from: date)
-        days.append(Day(shortSymbol: shortSymbol, date: date, ignored: true))
-      }
-    }
-    
-    return days
-  }
-}
 
 struct CustomScrollBehavior: ScrollTargetBehavior {
   var maxHeight: CGFloat
