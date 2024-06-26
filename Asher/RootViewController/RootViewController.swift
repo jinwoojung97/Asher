@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import SwiftUI
+import Combine
 
 import Then
 import SnapKit
 import RxSwift
 import RxCocoa
-import SwiftUI
 
 final class MainNavigationViewController: UINavigationController {
+    private var cancellables: Set<AnyCancellable> = []
+    
     let rootViewController = RootViewController()
     
     override func viewDidLoad() {
@@ -21,6 +24,18 @@ final class MainNavigationViewController: UINavigationController {
         
         navigationBar.isHidden = true
         setViewControllers([rootViewController], animated: false)
+        
+        NavigationManager.shared.$currentView
+                    .receive(on: DispatchQueue.main)
+                    .sink { [weak self] view in
+                        if let view = view {
+                            let hostingController = UIHostingController(rootView: view)
+                            self?.pushViewController(hostingController, animated: true)
+                        } else {
+                            self?.popViewController(animated: true)
+                        }
+                    }
+                    .store(in: &cancellables)
     }
 }
 
