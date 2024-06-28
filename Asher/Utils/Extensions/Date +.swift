@@ -17,6 +17,47 @@ extension Date {
         return currentMonth
     }
     
+    static var baseDays: [Day] {
+      let month = Date.currentMonth
+      var days: [Day] = []
+      let calendar = Calendar.current
+      let formatter = DateFormatter()
+      formatter.dateFormat = "dd"
+      
+      guard let range = calendar
+        .range(of: .day, in: .month, for: month)?
+        .compactMap({ return calendar.date(byAdding: .day, value: $0 - 1, to: month) }),
+            let rangeFirst = range.first,
+            let rangeLast = range.last
+      else { return days }
+      
+      let firstWeekDay = calendar.component(.weekday, from: rangeFirst)
+      let lastWeekDay = 7 - calendar.component(.weekday, from: rangeLast)
+      
+      for index in Array(0..<firstWeekDay - 1).reversed() {
+        guard let date = calendar.date(byAdding: .day, value: -index - 1, to: rangeFirst)
+        else { return days }
+        let shortSymbol = formatter.string(from: date)
+        days.append(Day(shortSymbol: shortSymbol, date: date, ignored: true))
+      }
+      
+      range.forEach { date in
+        let shortSymbol = formatter.string(from: date)
+        days.append(Day(shortSymbol: shortSymbol, date: date))
+      }
+      
+      if lastWeekDay > 0 {
+        for index in Array(0..<lastWeekDay) {
+          guard let date = calendar.date(byAdding: .day, value: index + 1, to: rangeLast)
+          else { return days }
+          let shortSymbol = formatter.string(from: date)
+          days.append(Day(shortSymbol: shortSymbol, date: date, ignored: true))
+        }
+      }
+      
+      return days
+    }
+    
     var category: DayCategory? {
         let calendar = Calendar.current
         if calendar.isDateInToday(self) {
@@ -26,6 +67,15 @@ extension Date {
             return .yesterday
         }
         return nil
+    }
+    
+    func toDayString() -> String {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy.MM.dd"
+        formatter.locale = .current
+        
+        return formatter.string(from: self)
     }
     
     func toString() -> String {
