@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0166022C2D3A9300E40192 /* MeditationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166012C2D3A9300E40192 /* MeditationFeature.swift */; };
+		EF0166052C2E4F1A00E40192 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166042C2E4F1A00E40192 /* SettingView.swift */; };
+		EF0166072C2E815D00E40192 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166062C2E815D00E40192 /* Debouncer.swift */; };
+		EF0166092C2E818700E40192 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166082C2E818700E40192 /* Throttler.swift */; };
+		EF01660D2C2E81EA00E40192 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF01660C2C2E81EA00E40192 /* CustomHeaderView.swift */; };
+		EF01660F2C2E832700E40192 /* SettingView + Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF01660E2C2E832700E40192 /* SettingView + Type.swift */; };
 		EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */; };
 		EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */; };
 		EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDF2C1C1F47004D1AA1 /* View +.swift */; };
@@ -14,6 +20,9 @@
 		EF16DDE42C1C2BBF004D1AA1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */; };
 		EF16DDEA2C1C2C32004D1AA1 /* HomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */; };
 		EF16DDEE2C1C2C8F004D1AA1 /* MenuView + Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */; };
+		EF231E2B2C2BE16900AB5EA7 /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF231E2A2C2BE16900AB5EA7 /* MeditationView.swift */; };
+		EF231E2D2C2C076000AB5EA7 /* FilpClockEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF231E2C2C2C076000AB5EA7 /* FilpClockEffectView.swift */; };
+		EF231E2F2C2C088300AB5EA7 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF231E2E2C2C088200AB5EA7 /* NavigationManager.swift */; };
 		EF2C947E2C16CB24003B2304 /* NotoSansKR-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94752C16CB21003B2304 /* NotoSansKR-SemiBold.ttf */; };
 		EF2C947F2C16CB24003B2304 /* NotoSansKR-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94762C16CB21003B2304 /* NotoSansKR-Light.ttf */; };
 		EF2C94802C16CB24003B2304 /* NotoSansKR-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94772C16CB22003B2304 /* NotoSansKR-Regular.ttf */; };
@@ -71,16 +80,26 @@
 		EFF6870C2C22C1C600FE5F07 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6870B2C22C1C600FE5F07 /* Quote.swift */; };
 		EFF6870E2C22C1CE00FE5F07 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6870D2C22C1CE00FE5F07 /* Mood.swift */; };
 		EFF687122C22C9FD00FE5F07 /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF687112C22C9FD00FE5F07 /* AppStorageManager.swift */; };
+		EFF687142C25468200FE5F07 /* DependencyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF687132C25468200FE5F07 /* DependencyValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF0166012C2D3A9300E40192 /* MeditationFeature.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MeditationFeature.swift; sourceTree = "<group>"; };
+		EF0166042C2E4F1A00E40192 /* SettingView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		EF0166062C2E815D00E40192 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		EF0166082C2E818700E40192 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
+		EF01660C2C2E81EA00E40192 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		EF01660E2C2E832700E40192 /* SettingView + Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingView + Type.swift"; sourceTree = "<group>"; };
 		EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTabbar + Tab.swift"; sourceTree = "<group>"; };
 		EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		EF16DDDF2C1C1F47004D1AA1 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
 		EF16DDE12C1C2997004D1AA1 /* AlignmentedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentedText.swift; sourceTree = "<group>"; };
 		EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
+		EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HomeFeature.swift; sourceTree = "<group>"; };
 		EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuView + Menu.swift"; sourceTree = "<group>"; };
+		EF231E2A2C2BE16900AB5EA7 /* MeditationView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
+		EF231E2C2C2C076000AB5EA7 /* FilpClockEffectView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = FilpClockEffectView.swift; sourceTree = "<group>"; };
+		EF231E2E2C2C088200AB5EA7 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		EF2C94752C16CB21003B2304 /* NotoSansKR-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-SemiBold.ttf"; sourceTree = "<group>"; };
 		EF2C94762C16CB21003B2304 /* NotoSansKR-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.ttf"; sourceTree = "<group>"; };
 		EF2C94772C16CB22003B2304 /* NotoSansKR-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.ttf"; sourceTree = "<group>"; };
@@ -134,6 +153,7 @@
 		EFF6870B2C22C1C600FE5F07 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		EFF6870D2C22C1CE00FE5F07 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		EFF687112C22C9FD00FE5F07 /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
+		EFF687132C25468200FE5F07 /* DependencyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +174,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF0166032C2E4F0B00E40192 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EF0166042C2E4F1A00E40192 /* SettingView.swift */,
+				EF01660E2C2E832700E40192 /* SettingView + Type.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		EF01660A2C2E81B600E40192 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				EF56BB922C16DCA10045394F /* CustomTabbar.swift */,
+				EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		EF01660B2C2E81BC00E40192 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				EF01660C2C2E81EA00E40192 /* CustomHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		EF16DDDE2C1C1F3C004D1AA1 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +213,7 @@
 		EF16DDE52C1C2BC6004D1AA1 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
+				EF231E292C2BE12A00AB5EA7 /* Meditation */,
 				EF16DDE72C1C2C06004D1AA1 /* Home */,
 				EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */,
 				EF81E46F2C229C6600B11A46 /* QuoteScrollView.swift */,
@@ -192,8 +239,19 @@
 				EF81E46D2C210BDA00B11A46 /* Home + Const.swift */,
 				EF81E46B2C20187000B11A46 /* HomeView.swift */,
 				EF16DDE92C1C2C32004D1AA1 /* HomeFeature.swift */,
+				EFF687132C25468200FE5F07 /* DependencyValues.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EF231E292C2BE12A00AB5EA7 /* Meditation */ = {
+			isa = PBXGroup;
+			children = (
+				EF231E2A2C2BE16900AB5EA7 /* MeditationView.swift */,
+				EF0166012C2D3A9300E40192 /* MeditationFeature.swift */,
+				EF231E2C2C2C076000AB5EA7 /* FilpClockEffectView.swift */,
+			);
+			path = Meditation;
 			sourceTree = "<group>";
 		};
 		EF2C946E2C16C7F4003B2304 /* Font */ = {
@@ -215,6 +273,7 @@
 		EF3C75302C12DA73002E58D3 = {
 			isa = PBXGroup;
 			children = (
+				EF0166082C2E818700E40192 /* Throttler.swift */,
 				EF3C753B2C12DA73002E58D3 /* Asher */,
 				EF3C753A2C12DA73002E58D3 /* Products */,
 			);
@@ -235,6 +294,7 @@
 				EF56BB952C16DD020045394F /* Utils */,
 				EF3C753C2C12DA73002E58D3 /* AsherApp.swift */,
 				EF16DDE62C1C2BE5004D1AA1 /* SwiftData */,
+				EF0166032C2E4F0B00E40192 /* Setting */,
 				EF16DDE52C1C2BC6004D1AA1 /* HomeTab */,
 				EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */,
 				EF56BB822C16DB3D0045394F /* RootViewController */,
@@ -253,19 +313,18 @@
 		EF56BB822C16DB3D0045394F /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EF56BB942C16DCD40045394F /* CustomTabbar */,
 				EF56BB902C16DBAE0045394F /* RootViewController.swift */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
 		};
-		EF56BB942C16DCD40045394F /* CustomTabbar */ = {
+		EF56BB942C16DCD40045394F /* CustomDesign */ = {
 			isa = PBXGroup;
 			children = (
-				EF56BB922C16DCA10045394F /* CustomTabbar.swift */,
-				EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */,
+				EF01660B2C2E81BC00E40192 /* Header */,
+				EF01660A2C2E81B600E40192 /* Tabbar */,
 			);
-			path = CustomTabbar;
+			path = CustomDesign;
 			sourceTree = "<group>";
 		};
 		EF56BB952C16DD020045394F /* Utils */ = {
@@ -301,6 +360,8 @@
 				EF56BBA32C16DDD30045394F /* NetworkManager.swift */,
 				EF56BBA42C16DDD30045394F /* UpdateManager.swift */,
 				EF56BBA52C16DDD30045394F /* CloudKitManager.swift */,
+				EF231E2E2C2C088200AB5EA7 /* NavigationManager.swift */,
+				EF0166062C2E815D00E40192 /* Debouncer.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -308,6 +369,7 @@
 		EF56BBA62C16DDD30045394F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EF56BB942C16DCD40045394F /* CustomDesign */,
 				EF16DDDE2C1C1F3C004D1AA1 /* SwiftUI */,
 				EF56BBA72C16DDD30045394F /* Date +.swift */,
 				EF56BBA82C16DDD30045394F /* Reactive +.swift */,
@@ -453,6 +515,7 @@
 			files = (
 				EF56BBD62C16DDD40045394F /* Encodable +.swift in Sources */,
 				EF81E46E2C210BDA00B11A46 /* Home + Const.swift in Sources */,
+				EF0166092C2E818700E40192 /* Throttler.swift in Sources */,
 				EF56BBC12C16DDD30045394F /* HapticManager.swift in Sources */,
 				EFF6870A2C22C1C000FE5F07 /* Day.swift in Sources */,
 				EF56BBD32C16DDD40045394F /* UIViewController +.swift in Sources */,
@@ -469,16 +532,23 @@
 				EF56BBC62C16DDD40045394F /* Date +.swift in Sources */,
 				EF56BBCE2C16DDD40045394F /* UIDevice +.swift in Sources */,
 				EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */,
+				EFF687142C25468200FE5F07 /* DependencyValues.swift in Sources */,
 				EF56BBC52C16DDD40045394F /* CloudKitManager.swift in Sources */,
+				EF0166072C2E815D00E40192 /* Debouncer.swift in Sources */,
 				EF56BBBE2C16DDD30045394F /* IndicatorManager.swift in Sources */,
+				EF0166052C2E4F1A00E40192 /* SettingView.swift in Sources */,
 				EF16DDE22C1C2997004D1AA1 /* AlignmentedText.swift in Sources */,
 				EF56BBCB2C16DDD40045394F /* UILabel +.swift in Sources */,
 				EF56BBC72C16DDD40045394F /* Reactive +.swift in Sources */,
 				EF56BB912C16DBAE0045394F /* RootViewController.swift in Sources */,
+				EF01660F2C2E832700E40192 /* SettingView + Type.swift in Sources */,
 				EF56BBC22C16DDD40045394F /* BiometricsAuthManager.swift in Sources */,
 				EF56BBD82C16DDD40045394F /* I18N.swift in Sources */,
+				EF01660D2C2E81EA00E40192 /* CustomHeaderView.swift in Sources */,
+				EF0166022C2D3A9300E40192 /* MeditationFeature.swift in Sources */,
 				EF56BBD22C16DDD40045394F /* UITextView +.swift in Sources */,
 				EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */,
+				EF231E2F2C2C088300AB5EA7 /* NavigationManager.swift in Sources */,
 				EF56BBCD2C16DDD40045394F /* UIApplication +.swift in Sources */,
 				EF56BBC02C16DDD30045394F /* UserNotiManager.swift in Sources */,
 				EF3C75412C12DA73002E58D3 /* Item.swift in Sources */,
@@ -490,7 +560,9 @@
 				EF81E4702C229C6600B11A46 /* QuoteScrollView.swift in Sources */,
 				EF56BBC82C16DDD40045394F /* Toast +.swift in Sources */,
 				EF16DDEE2C1C2C8F004D1AA1 /* MenuView + Menu.swift in Sources */,
+				EF231E2B2C2BE16900AB5EA7 /* MeditationView.swift in Sources */,
 				EF56BBCF2C16DDD40045394F /* UIImageView +.swift in Sources */,
+				EF231E2D2C2C076000AB5EA7 /* FilpClockEffectView.swift in Sources */,
 				EF56BBD52C16DDD40045394F /* Array +.swift in Sources */,
 				EF3C753D2C12DA73002E58D3 /* AsherApp.swift in Sources */,
 				EF56BBD72C16DDD40045394F /* String +.swift in Sources */,
