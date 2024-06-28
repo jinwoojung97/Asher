@@ -42,7 +42,7 @@ final class MainNavigationViewController: UINavigationController {
 public final class RootViewController: UITabBarController {
     let firstVc = UIHostingController(rootView: HomeView())
     let secondVc = TestNavigationViewController(color: .green)
-    let thirdVc = TestNavigationViewController(color: .yellow)
+    let thirdVc = UIHostingController(rootView: SettingView())
     
     let disposeBag = DisposeBag()
     
