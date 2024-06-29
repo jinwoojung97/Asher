@@ -23,10 +23,7 @@ struct SettingView: View {
         }
         
         Spacer()
-        
-        
       }
-      
     }
   }
   

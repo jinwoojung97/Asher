@@ -43,7 +43,21 @@ extension SettingView {
     
     @ViewBuilder
     var view: some View {
-      CustomHeaderView(action: { NavigationManager.shared.pop() }, title: title)
+        let action = { NavigationManager.shared.pop() }
+        let headerView = CustomHeaderView(action: action, title: title)
+        
+        switch self {
+        case .notificationSetting: NotificationSettingView(customHeaderView: headerView)
+            
+        default: headerView
+//        case .screenLock: return
+//        case .quotesSetting: return
+//        case .replayTutorial: return
+//        case .contactUs: return
+//        case .chooseTheme: return
+//        case .clearAllData: return
+        }
+      
     }
   }
 }
