@@ -79,6 +79,7 @@ struct ItemDatabase {
     var fetch: @Sendable (FetchDescriptor<Item>) throws -> [Item]
     var add: @Sendable (Item) throws -> Void
     var delete: @Sendable (Item) throws -> Void
+    var deleteAll: @Sendable () throws -> Void
     
     enum ItemError: Error {
         case add
@@ -128,6 +129,17 @@ extension ItemDatabase: DependencyKey {
             } catch {
                 throw ItemError.delete
             }
+        },
+        deleteAll: {
+            do {
+                @Dependency(\.databaseService.context) var context
+                let modelContext = try context()
+                
+                let descriptor = FetchDescriptor<Item>()
+                let allItems = try modelContext.fetch(descriptor)
+                allItems.forEach { modelContext.delete($0) }
+                try modelContext.save()
+            } catch { }
         }
     )
 }
@@ -139,13 +151,15 @@ extension ItemDatabase: TestDependencyKey {
         fetchAll: unimplemented("\(Self.self).fetch"),
         fetch: unimplemented("\(Self.self).fetchDescriptor"),
         add: unimplemented("\(Self.self).add"),
-        delete: unimplemented("\(Self.self).delete")
+        delete: unimplemented("\(Self.self).delete"),
+        deleteAll: unimplemented("\(Self.self).deleteAll")
     )
     
     static let noop = Self(
         fetchAll: { [] },
         fetch: { _ in [] },
         add: { _ in },
-        delete: { _ in }
+        delete: { _ in },
+        deleteAll: { }
     )
 }
