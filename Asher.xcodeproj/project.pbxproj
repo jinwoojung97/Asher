@@ -39,6 +39,7 @@
 		EF3C75462C12DA74002E58D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3C75452C12DA74002E58D3 /* Preview Assets.xcassets */; };
 		EF3C75522C12E1C4002E58D3 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EF3C75512C12E1C3002E58D3 /* ComposableArchitecture */; };
 		EF3C75552C12E238002E58D3 /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = EF3C75542C12E238002E58D3 /* TCACoordinators */; };
+		EF4C0E4C2C3236AF00571CA6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C0E4B2C3236AF00571CA6 /* DatabaseManager.swift */; };
 		EF56BB852C16DB670045394F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EF56BB842C16DB670045394F /* RxCocoa */; };
 		EF56BB872C16DB670045394F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EF56BB862C16DB670045394F /* RxRelay */; };
 		EF56BB892C16DB670045394F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF56BB882C16DB670045394F /* RxSwift */; };
@@ -117,6 +118,7 @@
 		EF3C75452C12DA74002E58D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF3C75472C12DA74002E58D3 /* Asher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Asher.entitlements; sourceTree = "<group>"; };
 		EF3C75482C12DA74002E58D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4C0E4B2C3236AF00571CA6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		EF56BB902C16DBAE0045394F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		EF56BB922C16DCA10045394F /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		EF56BB9C2C16DDD30045394F /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				EF56BBA52C16DDD30045394F /* CloudKitManager.swift */,
 				EF231E2E2C2C088200AB5EA7 /* NavigationManager.swift */,
 				EF0166062C2E815D00E40192 /* Debouncer.swift */,
+				EF4C0E4B2C3236AF00571CA6 /* DatabaseManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				EFF6870E2C22C1CE00FE5F07 /* Mood.swift in Sources */,
 				EF3C753F2C12DA73002E58D3 /* ContentView.swift in Sources */,
 				EFF687122C22C9FD00FE5F07 /* AppStorageManager.swift in Sources */,
+				EF4C0E4C2C3236AF00571CA6 /* DatabaseManager.swift in Sources */,
 				EF56BB932C16DCA10045394F /* CustomTabbar.swift in Sources */,
 				EF81E46C2C20187000B11A46 /* HomeView.swift in Sources */,
 				EF56BBC62C16DDD40045394F /* Date +.swift in Sources */,
@@ -711,6 +715,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,6 +746,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
