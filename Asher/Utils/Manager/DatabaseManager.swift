@@ -50,4 +50,12 @@ final class DatabaseManager {
             print("Error deleting item: \(error)")
         }
     }
+    
+    func deleteAll() {
+        do {
+            try DependencyValues._current.swiftData.deleteAll()
+        } catch {
+            print("Error deleting item: \(error)")
+        }
+    }
 }
