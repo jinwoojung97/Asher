@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingView: View {
+  private let throttler = Throttler(for: .seconds(1))
+  
   var body: some View {
     
     NavigationStack {
@@ -19,15 +21,19 @@ struct SettingView: View {
         ForEach(SettingType.allCases, id: \.self) { type in
           makeSettingView(type: type)
             .frame(height: 48)
-            .onTapGesture { NavigationManager.shared.push(type.view) }
+            .onTapGesture { onTapGesture(type: type) }
         }
-        
         Spacer()
         
         
       }
       
     }
+  }
+  
+  private func onTapGesture(type: SettingType) {
+    throttler.handleTrigger = { NavigationManager.shared.push(type.view) }
+    throttler.trigger.send(())
   }
   
   @ViewBuilder

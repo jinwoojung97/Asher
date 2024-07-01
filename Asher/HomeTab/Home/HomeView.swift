@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import Charts
 
 import ComposableArchitecture
 
@@ -32,6 +33,7 @@ struct HomeView: View {
           
           quoteView(viewStore: viewStore)
           
+          chartView(viewStore: viewStore)
           VStack(spacing: 15) {
             ForEach(1...15, id: \.self) { _ in
               cardView()
@@ -162,7 +164,8 @@ struct HomeView: View {
                     }
                     viewStore.send(.selecteDay(day.date))
                     
-                    viewStore.send(.addMood(day.date, .sad))
+                    let mood: Mood = day.mood == nil ? .sad: .happy
+                    viewStore.send(.addMood(day.date, mood))
               }
             }
           }
@@ -229,6 +232,25 @@ struct HomeView: View {
   var drag: some Gesture {
     DragGesture()
       .onEnded { store.send(.updateMonth($0.startLocation.x > $0.location.x))  }
+  }
+  
+  @ViewBuilder
+  private func chartView(
+    viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
+  ) -> some View {
+    let data: [Day] = [Day(shortSymbol: "1", date: .now, mood: .angry),
+                       Day(shortSymbol: "2", date: .now, mood: .sad),
+                       Day(shortSymbol: "3", date: .now, mood: .angry),
+                       Day(shortSymbol: "4", date: .now, mood: .happy),
+                       Day(shortSymbol: "6", date: .now, mood: .happy),
+                       Day(shortSymbol: "8", date: .now, mood: .angry),
+                       ]
+    Chart(data) { item in
+      LineMark(x: .value("day", item.shortSymbol),
+               y: .value("mood", item.mood == .angry ? 2 : -1))
+    }
+    
+    
   }
 }
 

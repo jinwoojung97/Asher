@@ -80,9 +80,8 @@ struct HomeFeature: Reducer {
       
       range.forEach { date in
         let shortSymbol = formatter.string(from: date)
-//        let mood = try? context.fetch(getItemDescriptor(date: date)).first?.mood
-        days.append(Day(shortSymbol: shortSymbol, date: date))
-        
+        let mood = DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: date)).first?.mood
+        days.append(Day(shortSymbol: shortSymbol, date: date, mood: mood))
       }
       
       if lastWeekDay > 0 {
@@ -95,6 +94,13 @@ struct HomeFeature: Reducer {
       }
       
       return days
+    }
+    
+    private func getItemDescriptor(date: Date) -> FetchDescriptor<Item> {
+      let dayString = date.toDayString()
+      let fetchPredicate = #Predicate<Item> { $0.date == dayString }
+      
+      return FetchDescriptor(predicate: fetchPredicate)
     }
   }
   
@@ -109,18 +115,11 @@ struct HomeFeature: Reducer {
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .addMood(let date, let mood):
-      do {
-        try context.add(Item(date: date.toDayString(), mood: mood))
-      } catch {
-        
-      }
+      addMood(date: date, mood: mood)
       return .none
       
     case .fetchAll:
-      do {
-        state.items = try context.fetchAll()
-      } catch {
-      }
+      state.items = DatabaseManager.shared.fetchAllItems()
       return .none
       
     case .menuTapped(let menu):
@@ -153,5 +152,14 @@ struct HomeFeature: Reducer {
     let fetchPredicate = #Predicate<Item> { $0.date == dayString }
     
     return FetchDescriptor(predicate: fetchPredicate)
+  }
+  
+  private func addMood(date: Date, mood: Mood) {
+    let item = DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: date)).first
+    if let item { item.mood = mood }
+    else {
+      let newItem = Item(date: date.toDayString(), mood: mood)
+      DatabaseManager.shared.addItem(newItem)
+    }
   }
 }
