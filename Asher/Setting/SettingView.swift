@@ -24,10 +24,7 @@ struct SettingView: View {
             .onTapGesture { onTapGesture(type: type) }
         }
         Spacer()
-        
-        
       }
-      
     }
   }
   

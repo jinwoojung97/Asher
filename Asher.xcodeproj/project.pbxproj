@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EBA0BD6E2C3008B7005EEC18 /* NotificationSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA0BD6D2C3008B7005EEC18 /* NotificationSettingView.swift */; };
 		EF0166022C2D3A9300E40192 /* MeditationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166012C2D3A9300E40192 /* MeditationFeature.swift */; };
 		EF0166052C2E4F1A00E40192 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166042C2E4F1A00E40192 /* SettingView.swift */; };
 		EF0166072C2E815D00E40192 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166062C2E815D00E40192 /* Debouncer.swift */; };
@@ -85,6 +86,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EBA0BD6D2C3008B7005EEC18 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
 		EF0166012C2D3A9300E40192 /* MeditationFeature.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MeditationFeature.swift; sourceTree = "<group>"; };
 		EF0166042C2E4F1A00E40192 /* SettingView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		EF0166062C2E815D00E40192 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
@@ -176,9 +178,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EBA0BD6C2C3008A4005EEC18 /* Noti */ = {
+			isa = PBXGroup;
+			children = (
+				EBA0BD6D2C3008B7005EEC18 /* NotificationSettingView.swift */,
+			);
+			path = Noti;
+			sourceTree = "<group>";
+		};
 		EF0166032C2E4F0B00E40192 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				EBA0BD6C2C3008A4005EEC18 /* Noti */,
 				EF0166042C2E4F1A00E40192 /* SettingView.swift */,
 				EF01660E2C2E832700E40192 /* SettingView + Type.swift */,
 			);
@@ -517,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF56BBD62C16DDD40045394F /* Encodable +.swift in Sources */,
+				EBA0BD6E2C3008B7005EEC18 /* NotificationSettingView.swift in Sources */,
 				EF81E46E2C210BDA00B11A46 /* Home + Const.swift in Sources */,
 				EF0166092C2E818700E40192 /* Throttler.swift in Sources */,
 				EF56BBC12C16DDD30045394F /* HapticManager.swift in Sources */,
