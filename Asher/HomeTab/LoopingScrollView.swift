@@ -45,6 +45,8 @@ struct LoopingScrollView<Content: View, Item: RandomAccessCollection>: View wher
     }
 }
 
+import Combine
+
 fileprivate struct ScrollViewHelper: UIViewRepresentable {
     var width: CGFloat
     var spacing: CGFloat
@@ -66,6 +68,7 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
             if let scrollView = uiView.superview?.superview?.superview as? UIScrollView,
                 !context.coordinator.isAdded {
                 scrollView.delegate = context.coordinator
+                context.coordinator.scrollView = scrollView
                 context.coordinator.isAdded = true
             }
         }
@@ -77,12 +80,44 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
         var itemsCount: Int
         var repeatingCount: Int
         var isAdded: Bool = false
+        var scrollView: UIScrollView?
+        var timer: AnyCancellable?
         
         init(width: CGFloat, spacing: CGFloat, itemsCount: Int, repeatingCount: Int) {
             self.width = width
             self.spacing = spacing
             self.itemsCount = itemsCount
             self.repeatingCount = repeatingCount
+            
+            super.init()
+            startTimer()
+        }
+        
+        private func startTimer() {
+            timer = Timer.publish(every: 5, on: .main, in: .common)
+                .autoconnect()
+                .sink(receiveValue: { [weak self] _ in self?.autoScroll() })
+        }
+        
+        private func stopTimer() {
+            timer?.cancel()
+            timer = nil
+        }
+        
+        private func autoScroll() {
+            guard let scrollView else { return }
+            
+            let mainContentSize = CGFloat(itemsCount) * (width - spacing)
+            let targetOffsetX = scrollView.contentOffset.x + width
+            
+            if scrollView.contentOffset.x > CGFloat(itemsCount) * (width - spacing) {
+                print("cehck scrollView")
+                scrollView.contentOffset.x = 0
+            }
+            
+            UIView.animate(withDuration: 0.5) {
+                scrollView.contentOffset.x = targetOffsetX
+            }
         }
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -98,6 +133,14 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
                 scrollView.contentOffset.x += mainContentSize + spacingSize
             }
         }
+        
+        func scrollViewWillBeginDragging(_ scrollView: UIScrollView) { stopTimer() }
+        
+        func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+            if !decelerate { startTimer()}
+        }
+        
+        func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { startTimer() }
      }
 }
 
