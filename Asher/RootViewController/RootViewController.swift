@@ -22,9 +22,12 @@ final class MainNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
         navigationBar.isHidden = true
         setViewControllers([rootViewController], animated: false)
-        
+    }
+    
+    private func bind() {
         NavigationManager.shared.$currentView
                     .receive(on: DispatchQueue.main)
                     .sink { [weak self] view in
@@ -36,6 +39,15 @@ final class MainNavigationViewController: UINavigationController {
                         }
                     }
                     .store(in: &cancellables)
+        
+        NavigationManager.shared.$selectedTab
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] index in
+                let index = index ?? 0
+                self?.rootViewController.selectedIndex = index
+                self?.rootViewController.customTabBar.selectTab(index: index)
+            }
+            .store(in: &cancellables)
     }
 }
 
