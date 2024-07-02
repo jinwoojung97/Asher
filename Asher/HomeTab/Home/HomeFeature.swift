@@ -129,6 +129,7 @@ struct HomeFeature: Reducer {
       case .meditation:
         NavigationManager.shared.push(MeditationView())
       case .chat:
+        NavigationManager.shared.select(.chat)
         break
       }
       print(menu)
