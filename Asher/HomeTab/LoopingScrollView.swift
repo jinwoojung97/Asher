@@ -109,15 +109,12 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
             
             let mainContentSize = CGFloat(itemsCount) * (width - spacing)
             let targetOffsetX = scrollView.contentOffset.x + width
+            let overMainContentSize = scrollView.contentOffset.x > mainContentSize
+            let positionX = overMainContentSize ? width: targetOffsetX
             
-            if scrollView.contentOffset.x > CGFloat(itemsCount) * (width - spacing) {
-                print("cehck scrollView")
-                scrollView.contentOffset.x = 0
-            }
+            if overMainContentSize { scrollView.contentOffset.x = 0 }
             
-            UIView.animate(withDuration: 0.5) {
-                scrollView.contentOffset.x = targetOffsetX
-            }
+            scrollView.setContentOffset(CGPoint(x: positionX, y: 0), animated: true)
         }
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
