@@ -44,11 +44,12 @@ struct QuoteScrollView: View {
             .frame(maxHeight: .infinity)
             .background(.main1)
             .cornerRadius(10)
+            .addBorder(.border, cornerRadius: 10)
             .shadow(radius: 5)
           }
         }
       }
-      .frame(height: 150)
+      .frame(height: 200)
       .scrollTargetBehavior(.paging)
     }
   }
