@@ -7,16 +7,30 @@
 
 import Foundation
 
-enum Mood: Codable {
-  case happy
-  case sad
-  case angry
-  
-  var emoji: String {
-    switch self {
-    case .happy: "😁"
-    case .sad: "😢"
-    case .angry: "😡"
+enum Mood: Codable, CaseIterable {
+    case best
+    case good
+    case normal
+    case bad
+    case worst
+    
+    var emoji: String {
+        switch self {
+        case .best: "😆"
+        case .good: "🙂"
+        case .normal: "😐"
+        case .bad: "☹️"
+        case .worst: "🤬"
+        }
     }
-  }
+    
+    var title: String {
+        switch self {
+        case .best: "최고"
+        case .good: "좋음"
+        case .normal: "그저 그럼"
+        case .bad: "안 좋음"
+        case .worst: "최악" 
+        }
+    }
 }
