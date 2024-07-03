@@ -21,6 +21,12 @@ struct HomeFeature: Reducer {
     var selectedDay: Date = .now
     var currentMonth: String { format("MMMM") }
     var year: String { format("YYYY") }
+    
+    var calendarHeight: CGFloat { Const.calendarTitleViewHeight + Const.weekLabelHeight +
+      UIApplication.shared.safeAreaInset.top + Const.topPadding + Const.bottomPadding +
+      calendarGridHeight + Const.welcomeMessageHeight
+    }
+    
     var monthProgress: CGFloat {
       let calendar = Calendar.current
       if let index = selectedMonthDates
@@ -31,7 +37,12 @@ struct HomeFeature: Reducer {
       return 1.0
     }
     var selectedMonthDates: [Day] { extractDates(selectedMonth) }
-    var calendarGridHeight: CGFloat { CGFloat(selectedMonthDates.count / 7) * 50 }
+    var calendarGridHeight: CGFloat {
+      let calendar = Calendar.current
+      let lines = calendar.numberOfWeeksInMonth(for: selectedDay)
+      
+      return CGFloat(lines * 50)
+    }
     
     func format(_ format: String) -> String {
       let formatter = DateFormatter()
@@ -50,9 +61,9 @@ struct HomeFeature: Reducer {
       self.selectedDay = day
     }
     
-    var calendarHeight: CGFloat { Const.calendarTitleViewHeight + Const.weekLabelHeight +
-      UIApplication.shared.safeAreaInset.top + Const.topPadding + Const.bottomPadding +
-      calendarGridHeight + Const.welcomeMessageHeight
+    mutating func setSelectedDay(day: Date) {
+      self.selectedMonth = .currentMonth
+      self.selectedDay = Date()
     }
     
     func extractDates(_ month: Date) -> [Day] {
@@ -116,6 +127,7 @@ struct HomeFeature: Reducer {
     switch action {
     case .addMood(let date, let mood):
       addMood(date: date, mood: mood)
+      state.setSelectedDay(day: state.selectedDay)
       return .none
       
     case .fetchAll:
@@ -125,7 +137,8 @@ struct HomeFeature: Reducer {
     case .menuTapped(let menu):
       switch menu {
       case .checkMood:
-        break
+        state.setSelectedDay(day: .now)
+        return .none
       case .meditation:
         NavigationManager.shared.push(MeditationView())
       case .chat:
@@ -162,5 +175,12 @@ struct HomeFeature: Reducer {
       let newItem = Item(date: date.toDayString(), mood: mood)
       DatabaseManager.shared.addItem(newItem)
     }
+  }
+}
+
+extension Calendar {
+  func numberOfWeeksInMonth(for date: Date) -> Int {
+    let range = self.range(of: .weekOfMonth, in: .month, for: date)
+    return range?.count ?? 5
   }
 }
