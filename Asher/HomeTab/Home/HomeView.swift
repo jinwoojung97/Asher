@@ -25,21 +25,18 @@ struct HomeView: View {
         VStack(spacing: 0) {
           calendarView(viewStore: viewStore)
           
-          if let category = viewStore.state.selectedDay.category {
-            checkMoodView(category: category, viewStore: viewStore)
-          }
+          if viewStore.state.selectedDay.isToday { checkMoodView(viewStore: viewStore) }
           
           menuView(viewStore: viewStore)
           
           quoteView(viewStore: viewStore)
           
           chartView(viewStore: viewStore)
-          VStack(spacing: 15) {
-            ForEach(1...15, id: \.self) { _ in
-              cardView()
-            }
-          }
-          .padding(16)
+          
+          Rectangle()
+            .frame(height: 400)
+            .frame(maxWidth: .infinity)
+          
         }
       }
       .ignoresSafeArea()
@@ -163,9 +160,6 @@ struct HomeView: View {
                       viewStore.send(.updateMonth(increment))
                     }
                     viewStore.send(.selecteDay(day.date))
-                    
-                    let mood: Mood = day.mood == nil ? .sad: .happy
-                    viewStore.send(.addMood(day.date, mood))
               }
             }
           }
@@ -194,32 +188,60 @@ struct HomeView: View {
   }
   
   @ViewBuilder
+  private func checkMoodView(
+    viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
+  ) -> some View {
+    let currentMood = viewStore.state.selectedMonthDates
+      .first { $0.date.toDayString() == viewStore.state.selectedDay.toDayString() }?.mood
+    VStack {
+      HStack(alignment: .center) {
+        MenuView.Menu.checkMood.icon
+          .resizable()
+          .frame(width: 30, height: 30)
+        Text("오늘의 기분을 체크해보세요!")
+          .font(.notoSans(width: .semiBold, size: 16))
+          .foregroundStyle(.subtitleOn)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(.horizontal)
+      ScrollView(.horizontal) {
+        HStack() {
+          ForEach(Mood.allCases, id: \.hashValue) { mood in
+            let selectedMood = currentMood == mood
+            Text("\(mood.emoji) \(mood.title)")
+              .font(.notoSans(width: .medium, size: 14))
+              .foregroundStyle(.subtitleOn)
+              .setPadding(paddings: (.top, 5), (.bottom, 7))
+              .padding(.horizontal)
+              .background(selectedMood ? .current: .border)
+              .clipShape(.capsule)
+              .onTapGesture {
+                viewStore.send(.addMood(viewStore.selectedDay, mood))
+              }
+          }
+        }
+        .padding(.horizontal, 16)
+      }
+    }
+  }
+  
+  @ViewBuilder
   private func menuView(viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>) -> some View {
-    
     var columns: [GridItem] {
       horizontalSizeClass == .regular ?
       [GridItem(.flexible())]:
       [GridItem(.flexible()), GridItem(.flexible())]
     }
     
+    let currentMood = viewStore.state.selectedMonthDates
+      .first { ($0.date.toDayString() == Date().toDayString()) && !$0.ignored }?.mood
+    
     LazyVGrid(columns: columns, spacing: 16) {
       ForEach(MenuView.Menu.allCases, id: \.hashValue) { menu in
-        MenuView(menu: menu) {
-          viewStore.send(.menuTapped(menu))
+        if currentMood == nil || menu != .checkMood {
+          MenuView(menu: menu) { viewStore.send(.menuTapped(menu)) }
         }
       }
-    }
-    .padding()
-  }
-  
-  @ViewBuilder
-  private func checkMoodView(
-    category: Date.DayCategory,
-    viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
-  ) -> some View {
-    VStack() {
-      Text(category.title)
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
     .padding()
   }
@@ -238,16 +260,16 @@ struct HomeView: View {
   private func chartView(
     viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
   ) -> some View {
-    let data: [Day] = [Day(shortSymbol: "1", date: .now, mood: .angry),
-                       Day(shortSymbol: "2", date: .now, mood: .sad),
-                       Day(shortSymbol: "3", date: .now, mood: .angry),
-                       Day(shortSymbol: "4", date: .now, mood: .happy),
-                       Day(shortSymbol: "6", date: .now, mood: .happy),
-                       Day(shortSymbol: "8", date: .now, mood: .angry),
+    let data: [Day] = [Day(shortSymbol: "1", date: .now, mood: .bad),
+                       Day(shortSymbol: "2", date: .now, mood: .normal),
+                       Day(shortSymbol: "3", date: .now, mood: .bad),
+                       Day(shortSymbol: "4", date: .now, mood: .best),
+                       Day(shortSymbol: "6", date: .now, mood: .best),
+                       Day(shortSymbol: "8", date: .now, mood: .good),
                        ]
     Chart(data) { item in
       LineMark(x: .value("day", item.shortSymbol),
-               y: .value("mood", item.mood == .angry ? 2 : -1))
+               y: .value("mood", item.mood == .bad ? 2 : -1))
     }
     
     
@@ -265,6 +287,14 @@ struct CustomScrollBehavior: ScrollTargetBehavior {
   func updateTarget(_ target: inout ScrollTarget, context: TargetContext) {
     if target.rect.minY < maxHeight {
       target.rect = .zero
+    }
+  }
+}
+
+extension View {
+  func setPadding(paddings: (edges: Edge.Set, length: CGFloat)...) -> some View {
+    paddings.reduce(AnyView(self)) { view, padding in
+      AnyView(view.padding(padding.edges, padding.length))
     }
   }
 }
