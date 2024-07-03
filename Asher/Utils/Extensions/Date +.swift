@@ -58,15 +58,9 @@ extension Date {
       return days
     }
     
-    var category: DayCategory? {
+    var isToday: Bool {
         let calendar = Calendar.current
-        if calendar.isDateInToday(self) {
-            return .today
-        } else if let yesterday = calendar.date(byAdding: .day, value: -1, to: Date()),
-                    calendar.isDate(self, inSameDayAs: yesterday) {
-            return .yesterday
-        }
-        return nil
+        return calendar.isDateInToday(self) ? true: false
     }
     
     func toDayString() -> String {
@@ -94,23 +88,5 @@ extension Date {
         formatter.locale = .current
         
         return Int(Int(formatter.string(from: self)) ?? 0)
-    }
-}
-
-extension Date {
-    enum DayCategory {
-        case yesterday
-        case today
-        
-        var toString: String {
-            switch self {
-            case .yesterday: "어제"
-            case .today: "오늘"
-            }
-        }
-        
-        var title: String {
-            "\(toString)의 기분을 체크해보세요!"
-        }
     }
 }
