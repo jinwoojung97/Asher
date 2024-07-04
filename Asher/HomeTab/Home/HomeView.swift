@@ -33,10 +33,6 @@ struct HomeView: View {
           
           chartView(viewStore: viewStore)
           
-          Rectangle()
-            .frame(height: 400)
-            .frame(maxWidth: .infinity)
-          
         }
       }
       .ignoresSafeArea()
@@ -260,19 +256,7 @@ struct HomeView: View {
   private func chartView(
     viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
   ) -> some View {
-    let data: [Day] = [Day(shortSymbol: "1", date: .now, mood: .bad),
-                       Day(shortSymbol: "2", date: .now, mood: .normal),
-                       Day(shortSymbol: "3", date: .now, mood: .bad),
-                       Day(shortSymbol: "4", date: .now, mood: .best),
-                       Day(shortSymbol: "6", date: .now, mood: .best),
-                       Day(shortSymbol: "8", date: .now, mood: .good),
-                       ]
-    Chart(data) { item in
-      LineMark(x: .value("day", item.shortSymbol),
-               y: .value("mood", item.mood == .bad ? 2 : -1))
-    }
-    
-    
+    let items = DatabaseManager.shared.fetchAllItems()
   }
 }
 

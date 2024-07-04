@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Mood: Codable, CaseIterable {
+enum Mood: Codable {
     case best
     case good
     case normal
@@ -34,3 +34,5 @@ enum Mood: Codable, CaseIterable {
         }
     }
 }
+
+extension Mood: CaseIterable { }
