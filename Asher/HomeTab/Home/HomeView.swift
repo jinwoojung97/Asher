@@ -130,33 +130,27 @@ struct HomeView: View {
           
           LazyVGrid(columns: Array(repeating: GridItem(spacing: 0), count: 7), spacing: 0) {
             ForEach(viewStore.state.selectedMonthDates) { day in
-                Text(day.shortSymbol)
-                  .font(.notoSans(width: .medium, size: 15))
-                  .foregroundStyle(day.ignored ? .subtitle: .subtitleOn)
-                  .frame(maxWidth: .infinity)
-                  .frame(height: 50)
-                  .shadow(radius: day.ignored ? 0: 2)
-                  .overlay {
-                    Circle()
-                      .fill(.red)
-                      .frame(width: 25, height: 25)
-                      .opacity(Calendar.current.isDate(day.date, inSameDayAs: viewStore.state.selectedDay) ? 0.2: 0) // TODO: feature로 옮기기
+              Text(day.shortSymbol)
+                .font(.notoSans(width: .medium, size: 15))
+                .foregroundStyle(day.ignored ? .subtitle: .subtitleOn)
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
+                .shadow(radius: day.ignored ? 0: 2)
+                .overlay {
+                  Circle()
+                    .fill(.red)
+                    .frame(width: 25, height: 25)
+                    .opacity(Calendar.current.isDate(day.date, inSameDayAs: viewStore.state.selectedDay) ? 0.2: 0) // TODO: feature로 옮기기
+                }
+                .overlay(alignment: .bottom) { moodView(moods: day.mood) }
+                .contentShape(.rect)
+                .onTapGesture {
+                  if day.ignored {
+                    let increment = viewStore.state.selectedDay < day.date
+                    viewStore.send(.updateMonth(increment))
                   }
-                  .overlay(alignment: .bottom) {
-                    if let mood = day.mood {
-                      Text(mood.emoji)
-                        .font(.notoSans(width: .medium, size: 10))
-                        .opacity(0.8)
-                    }
-                  }
-                  .contentShape(.rect)
-                  .onTapGesture {
-                    if day.ignored {
-                      let increment = viewStore.state.selectedDay < day.date
-                      viewStore.send(.updateMonth(increment))
-                    }
-                    viewStore.send(.selecteDay(day.date))
-              }
+                  viewStore.send(.selecteDay(day.date))
+                }
             }
           }
           .frame(height: viewStore.state.calendarGridHeight - (viewStore.state.calendarGridHeight - 50) * progress, alignment: .top)
@@ -203,7 +197,7 @@ struct HomeView: View {
       ScrollView(.horizontal) {
         HStack() {
           ForEach(Mood.allCases, id: \.hashValue) { mood in
-            let selectedMood = currentMood == mood
+            let selectedMood = currentMood?.last == mood
             Text("\(mood.emoji) \(mood.title)")
               .font(.notoSans(width: .medium, size: 14))
               .foregroundStyle(.subtitleOn)
@@ -212,7 +206,7 @@ struct HomeView: View {
               .background(selectedMood ? .current: .border)
               .clipShape(.capsule)
               .onTapGesture {
-                viewStore.send(.addMood(viewStore.selectedDay, mood))
+                viewStore.send(.addMood(.now, mood))
               }
           }
         }
@@ -257,6 +251,21 @@ struct HomeView: View {
     viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
   ) -> some View {
     let items = DatabaseManager.shared.fetchAllItems()
+  }
+  
+  @ViewBuilder
+  private func moodView(moods: [Mood]?) -> some View {
+    if let moods {
+      HStack(spacing: -5) {
+        ForEach(moods, id: \.id) { mood in
+          ZStack {
+            Text(mood.emoji)
+              .font(.notoSans(width: .medium, size: 10))
+              .opacity(0.8)
+          }
+        }
+      }
+    }
   }
 }
 

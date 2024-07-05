@@ -36,3 +36,7 @@ enum Mood: Codable {
 }
 
 extension Mood: CaseIterable { }
+
+extension Mood: Identifiable {
+    var id: UUID { UUID() }
+}

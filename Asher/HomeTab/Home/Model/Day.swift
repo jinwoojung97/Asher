@@ -12,5 +12,5 @@ struct Day: Identifiable, Equatable {
   var shortSymbol: String
   var date: Date
   var ignored: Bool = false
-  var mood: Mood?
+  var mood: [Mood]?
 }

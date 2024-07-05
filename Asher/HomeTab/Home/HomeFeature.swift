@@ -91,7 +91,7 @@ struct HomeFeature: Reducer {
       
       range.forEach { date in
         let shortSymbol = formatter.string(from: date)
-        let mood = DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: date)).first?.mood
+        let mood = DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: date)).compactMap(\.mood)
         days.append(Day(shortSymbol: shortSymbol, date: date, mood: mood))
       }
       
@@ -109,7 +109,7 @@ struct HomeFeature: Reducer {
     
     private func getItemDescriptor(date: Date) -> FetchDescriptor<Item> {
       let dayString = date.toDayString()
-      let fetchPredicate = #Predicate<Item> { $0.date == dayString }
+      let fetchPredicate = #Predicate<Item> { $0.date.starts(with: dayString) }
       
       return FetchDescriptor(predicate: fetchPredicate)
     }
@@ -163,18 +163,17 @@ struct HomeFeature: Reducer {
   
   private func getItemDescriptor(date: Date) -> FetchDescriptor<Item> {
     let dayString = date.toDayString()
-    let fetchPredicate = #Predicate<Item> { $0.date == dayString }
+    let fetchPredicate = #Predicate<Item> { $0.date.starts(with: dayString) }
     
     return FetchDescriptor(predicate: fetchPredicate)
   }
   
   private func addMood(date: Date, mood: Mood) {
-    let item = DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: date)).first
-    if let item { item.mood = mood }
-    else {
-      let newItem = Item(date: date.toDayString(), mood: mood)
-      DatabaseManager.shared.addItem(newItem)
-    }
+    let items = DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: date))
+    let newItem = Item(date: date.toString(), mood: mood)
+    
+    if items.count > 2 { DatabaseManager.shared.deleteAll() }
+    else { DatabaseManager.shared.addItem(newItem) }
   }
 }
 
