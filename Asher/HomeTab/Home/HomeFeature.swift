@@ -116,7 +116,9 @@ struct HomeFeature: Reducer {
   }
   
   enum Action: Equatable {
-    case addMood(Date, Mood)
+    case addMood(Mood)
+    case clearMood
+    case deleteMood
     case fetchAll
     case menuTapped(MenuView.Menu)
     case selecteDay(Date)
@@ -125,8 +127,18 @@ struct HomeFeature: Reducer {
   
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
-    case .addMood(let date, let mood):
-      addMood(date: date, mood: mood)
+    case .addMood(let mood):
+      addMood(mood)
+      state.setSelectedDay(day: state.selectedDay)
+      return .none
+      
+    case .clearMood:
+      clearMood()
+      state.setSelectedDay(day: state.selectedDay)
+      return .none
+      
+    case .deleteMood:
+      deleteMood()
       state.setSelectedDay(day: state.selectedDay)
       return .none
       
@@ -168,12 +180,29 @@ struct HomeFeature: Reducer {
     return FetchDescriptor(predicate: fetchPredicate)
   }
   
-  private func addMood(date: Date, mood: Mood) {
-    let items = DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: date))
-    let newItem = Item(date: date.toString(), mood: mood)
+  private func addMood(_ mood: Mood) {
+    let items = getCurrentItems()
+    let newItem = Item(date: Date.now.toString(), mood: mood)
     
-    if items.count > 2 { DatabaseManager.shared.deleteAll() }
+    if items.count > 2 {  } //썌얘: Toast 보여주기
     else { DatabaseManager.shared.addItem(newItem) }
+  }
+  
+  private func clearMood() {
+    //TODO: 토스트로 진짜 삭제할건지 물어보기
+    let items = getCurrentItems()
+    
+    items.forEach { DatabaseManager.shared.deleteItem($0) }
+  }
+  
+  private func deleteMood() {
+    guard let lastItem = getCurrentItems().last else { return }
+    
+    DatabaseManager.shared.deleteItem(lastItem)
+  }
+  
+  private func getCurrentItems() -> [Item] {
+    DatabaseManager.shared.fetchItems(with: getItemDescriptor(date: .now))
   }
 }
 

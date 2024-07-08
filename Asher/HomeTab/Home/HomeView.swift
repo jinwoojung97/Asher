@@ -198,21 +198,33 @@ struct HomeView: View {
         HStack() {
           ForEach(Mood.allCases, id: \.hashValue) { mood in
             let selectedMood = currentMood?.last == mood
-            Text("\(mood.emoji) \(mood.title)")
-              .font(.notoSans(width: .medium, size: 14))
-              .foregroundStyle(.subtitleOn)
-              .setPadding(paddings: (.top, 5), (.bottom, 7))
-              .padding(.horizontal)
-              .background(selectedMood ? .current: .border)
-              .clipShape(.capsule)
-              .onTapGesture {
-                viewStore.send(.addMood(.now, mood))
-              }
+            let background: Color = selectedMood ? .current: .border
+            
+            capsuleText(text: "\(mood.emoji) \(mood.title)", background: background)
+              .onTapGesture { viewStore.send(.addMood(mood)) }
           }
+          
+          capsuleText(text: "지우기", background: .brown)
+            .onTapGesture { viewStore.send(.deleteMood) }
+          
+          capsuleText(text: "초기화", background: .brown)
+            .onTapGesture { viewStore.send(.clearMood) }
+          
         }
         .padding(.horizontal, 16)
       }
     }
+  }
+  
+  @ViewBuilder
+  private func capsuleText(text: String, background: Color) -> some View {
+    Text(text)
+      .font(.notoSans(width: .medium, size: 14))
+      .foregroundStyle(.subtitleOn)
+      .setPadding(paddings: (.top, 5), (.bottom, 7))
+      .padding(.horizontal)
+      .background(background)
+      .clipShape(.capsule)
   }
   
   @ViewBuilder
