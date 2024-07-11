@@ -37,7 +37,7 @@ struct HomeView: View {
       }
       .ignoresSafeArea()
       .scrollIndicators(.hidden)
-      .scrollTargetBehavior(CustomScrollBehavior(maxHeight: maxHeight))
+      .scrollTargetBehavior(CustomScrollBehavior(maxHeight: maxHeight - 50))
       .padding(.bottom, 75)
       .onAppear { viewStore.send(.fetchAll) }
     }
@@ -200,15 +200,14 @@ struct HomeView: View {
             let selectedMood = currentMood?.last == mood
             let background: Color = selectedMood ? .current: .border
             
-            capsuleText(text: "\(mood.emoji) \(mood.title)", background: background)
-              .onTapGesture { viewStore.send(.addMood(mood)) }
+            capsuleText(text: "\(mood.emoji) \(mood.title)", background: background) {
+              viewStore.send(.addMood(mood))
+            }
           }
           
-          capsuleText(text: "지우기", background: .brown)
-            .onTapGesture { viewStore.send(.deleteMood) }
+          capsuleText(text: "지우기") { viewStore.send(.deleteMood) }
           
-          capsuleText(text: "초기화", background: .brown)
-            .onTapGesture { viewStore.send(.clearMood) }
+          capsuleText(text: "초기화") { viewStore.send(.clearMood) }
           
         }
         .padding(.horizontal, 16)
@@ -217,14 +216,21 @@ struct HomeView: View {
   }
   
   @ViewBuilder
-  private func capsuleText(text: String, background: Color) -> some View {
-    Text(text)
-      .font(.notoSans(width: .medium, size: 14))
-      .foregroundStyle(.subtitleOn)
-      .setPadding(paddings: (.top, 5), (.bottom, 7))
-      .padding(.horizontal)
-      .background(background)
-      .clipShape(.capsule)
+  private func capsuleText(
+    text: String,
+    background: Color = .border,
+    action: @escaping () -> ()
+  ) -> some View {
+    Button(action: action) {
+      Text(text)
+        .font(.notoSans(width: .medium, size: 14))
+        .foregroundStyle(.subtitleOn)
+        .setPadding(paddings: (.top, 5), (.bottom, 7))
+        .padding(.horizontal)
+        .background(background)
+        .clipShape(.capsule)
+    }
+    
   }
   
   @ViewBuilder
@@ -263,6 +269,9 @@ struct HomeView: View {
     viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
   ) -> some View {
     let items = DatabaseManager.shared.fetchAllItems()
+    ChartViewRepresentable()
+      .frame(height: 360)
+      .padding()
   }
   
   @ViewBuilder
