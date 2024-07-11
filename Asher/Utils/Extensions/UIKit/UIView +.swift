@@ -23,7 +23,6 @@ public extension UIView {
     
     func addCornerRadius(radius: CGFloat,
                          _ maskedCorners: CACornerMask = .allCorners) {
-        
         layer.cornerRadius = radius
         layer.maskedCorners = maskedCorners
     }
