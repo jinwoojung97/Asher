@@ -83,6 +83,8 @@
 		EFF6870E2C22C1CE00FE5F07 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF6870D2C22C1CE00FE5F07 /* Mood.swift */; };
 		EFF687122C22C9FD00FE5F07 /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF687112C22C9FD00FE5F07 /* AppStorageManager.swift */; };
 		EFF687142C25468200FE5F07 /* DependencyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF687132C25468200FE5F07 /* DependencyValues.swift */; };
+		EFF7B3942C3FB86600E84D8B /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7B3932C3FB86600E84D8B /* ChartView.swift */; };
+		EFF7B3972C3FB8B600E84D8B /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EFF7B3962C3FB8B600E84D8B /* DGCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +160,7 @@
 		EFF6870D2C22C1CE00FE5F07 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		EFF687112C22C9FD00FE5F07 /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
 		EFF687132C25468200FE5F07 /* DependencyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyValues.swift; sourceTree = "<group>"; };
+		EFF7B3932C3FB86600E84D8B /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF7B3972C3FB8B600E84D8B /* DGCharts in Frameworks */,
 				EF56BB852C16DB670045394F /* RxCocoa in Frameworks */,
 				EF3C75552C12E238002E58D3 /* TCACoordinators in Frameworks */,
 				EF56BB892C16DB670045394F /* RxSwift in Frameworks */,
@@ -229,6 +233,7 @@
 				EF231E292C2BE12A00AB5EA7 /* Meditation */,
 				EF16DDE72C1C2C06004D1AA1 /* Home */,
 				EF16DDE32C1C2BBF004D1AA1 /* MenuView.swift */,
+				EFF7B3932C3FB86600E84D8B /* ChartView.swift */,
 				EF81E46F2C229C6600B11A46 /* QuoteScrollView.swift */,
 				EF81E4712C229C7600B11A46 /* LoopingScrollView.swift */,
 				EF16DDED2C1C2C8F004D1AA1 /* MenuView + Menu.swift */,
@@ -456,6 +461,7 @@
 				EF56BB882C16DB670045394F /* RxSwift */,
 				EF56BB8B2C16DB7A0045394F /* SnapKit */,
 				EF56BB8E2C16DBA20045394F /* Then */,
+				EFF7B3962C3FB8B600E84D8B /* DGCharts */,
 			);
 			productName = Asher;
 			productReference = EF3C75392C12DA73002E58D3 /* Asher.app */;
@@ -491,6 +497,7 @@
 				EF56BB832C16DB670045394F /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EF56BB8A2C16DB7A0045394F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EF56BB8D2C16DBA20045394F /* XCRemoteSwiftPackageReference "Then" */,
+				EFF7B3952C3FB8B600E84D8B /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = EF3C753A2C12DA73002E58D3 /* Products */;
 			projectDirPath = "";
@@ -547,6 +554,7 @@
 				EF81E46C2C20187000B11A46 /* HomeView.swift in Sources */,
 				EF56BBC62C16DDD40045394F /* Date +.swift in Sources */,
 				EF56BBCE2C16DDD40045394F /* UIDevice +.swift in Sources */,
+				EFF7B3942C3FB86600E84D8B /* ChartView.swift in Sources */,
 				EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */,
 				EFF687142C25468200FE5F07 /* DependencyValues.swift in Sources */,
 				EF56BBC52C16DDD40045394F /* CloudKitManager.swift in Sources */,
@@ -836,6 +844,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		EFF7B3952C3FB8B600E84D8B /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -873,6 +889,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EF56BB8D2C16DBA20045394F /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		EFF7B3962C3FB8B600E84D8B /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFF7B3952C3FB8B600E84D8B /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
