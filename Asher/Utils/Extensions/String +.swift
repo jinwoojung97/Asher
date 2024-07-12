@@ -22,4 +22,9 @@ public extension String {
     var isJapan: Bool { self == "ja" }
     
     var forceCharWrapping: String { map({ String($0) }).joined(separator: "\u{200B}") }
+    
+    var removeDot: Double {
+        let prefix = self.prefix(10)
+        return Double(prefix.replacingOccurrences(of: ".", with: "")) ?? .zero
+    }
 }

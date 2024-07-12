@@ -26,6 +26,27 @@ final class DatabaseManager {
         }
     }
     
+    func fetchChartItems() -> [ChartInfo] {
+        let items = fetchAllItems()
+        var groupedItems: [String: [Item]] = [:]
+        var result: [ChartInfo] = []
+        
+        items.forEach { groupedItems[$0.date, default: []].append($0) }
+        groupedItems.forEach { key, value in
+            if !value.isEmpty {
+                let test = value.compactMap { $0.mood?.score }.reduce(0, +) / Double(value.count)
+                result.append(ChartInfo(date: key, score: test))
+            }
+        }
+        
+        return result
+    }
+    
+    private func getScore(item: [Item]) -> Double {
+        if item.count == 1 { item.first?.mood?.score ?? 0 }
+        else { item.compactMap { $0.mood?.score }.reduce(0, +) / Double(item.count) }
+    }
+    
     func fetchItems(with descriptor: FetchDescriptor<Item>) -> [Item] {
         do {
             return try DependencyValues._current.swiftData.fetch(descriptor)
@@ -57,5 +78,14 @@ final class DatabaseManager {
         } catch {
             print("Error deleting item: \(error)")
         }
+    }
+}
+
+extension DatabaseManager {
+    struct ChartInfo {
+        let date: String
+        let score: Double
+        
+        var index: Double { date.removeDot }
     }
 }

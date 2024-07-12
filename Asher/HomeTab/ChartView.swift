@@ -148,10 +148,13 @@ final class ChartView: UIView {
     
     private func testData() -> ChartData {
         var dataEntries: [ChartDataEntry] = []
-        for i in 0..<20 {
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double.random(in: 50...100))
-            dataEntries.append(dataEntry)
-        }
+        let chartData = DatabaseManager.shared.fetchChartItems()
+            .sorted { $0.index < $1.index }
+            .map { ChartDataEntry(x: $0.index, y: $0.score, data: $0.date) }
+            
+        print("yeonhak's Log!!! \(#function) \(chartData.map(\.data))")
+        
+        dataEntries = chartData
 
         let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "Sample Data")
         

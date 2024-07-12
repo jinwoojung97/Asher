@@ -33,6 +33,16 @@ enum Mood: Codable {
         case .worst: "최악" 
         }
     }
+    
+    var score: Double {
+        switch self {
+        case .best: 100
+        case .good: 75
+        case .normal: 50
+        case .bad: 25
+        case .worst: 0
+        }
+    }
 }
 
 extension Mood: CaseIterable { }
