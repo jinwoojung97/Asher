@@ -36,22 +36,16 @@ struct ChartViewRepresentable: UIViewRepresentable {
         func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
             removeAllInfoView()
             selectedHighlight = highlight
-            let infoView = GraphInfoView().then {
-                $0.addCornerRadius(radius: 4)
-            }
+            let infoView = GraphInfoView(data: entry.data as? DatabaseManager.ChartInfo)
             self.infoView = infoView
             let deviceWidth = UIScreen.main.bounds.width
             let x = min(max(introViewInset, highlight.xPx), deviceWidth - introViewInset)
-            
-            infoView.backgroundColor = .white
             
             chartView.addSubview(infoView)
             
             infoView.snp.makeConstraints {
                 $0.centerX.equalTo(x)
                 $0.centerY.equalTo(20)
-                $0.width.equalTo(60)
-                $0.height.equalTo(40)
             }
         }
         
@@ -150,7 +144,7 @@ final class ChartView: UIView {
         var dataEntries: [ChartDataEntry] = []
         let chartData = DatabaseManager.shared.fetchChartItems()
             .sorted { $0.index < $1.index }
-            .map { ChartDataEntry(x: $0.index, y: $0.score, data: $0.date) }
+            .map { ChartDataEntry(x: $0.index, y: $0.score, data: $0) }
             
         print("yeonhak's Log!!! \(#function) \(chartData.map(\.data))")
         
@@ -180,27 +174,33 @@ final class ChartView: UIView {
 }
 
 final class GraphInfoView: UIView {
-    let infoLabel = UILabel().then {
-        $0.text = "24/07/04"
-        $0.textColor = .blue
-        $0.font = .systemFont(ofSize: 14)
+    let data: DatabaseManager.ChartInfo?
+    
+    let shadowWrapperView = UIView().then {
+        $0.addShadow(offset: CGSize(width: 0, height: 2))
+    }
+    
+    let wrapperView = UIView().then {
+        $0.backgroundColor = .main1
+        $0.addCornerRadius(radius: 4)
+    }
+    
+    lazy var infoLabel = UILabel().then {
+        $0.text = data?.day
+        $0.textColor = .subtitleOn
+        $0.font = .systemFont(ofSize: 12)
     }
     
     lazy var moodView = makeMoodView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(data: DatabaseManager.ChartInfo?) {
+        self.data = data
+        super.init(frame: .zero)
         commonInit()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-        self.addShadow(offset: CGSize(width: 0, height: 2))
     }
     
     private func commonInit() {
@@ -209,33 +209,39 @@ final class GraphInfoView: UIView {
     }
     
     private func addComponent() {
-        [infoLabel, moodView].forEach(addSubview)
+        addSubview(shadowWrapperView)
+        shadowWrapperView.addSubview(wrapperView)
+        
+        [infoLabel, moodView].forEach(wrapperView.addSubview)
     }
     
     private func setConstraints() {
+        shadowWrapperView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        wrapperView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        
         infoLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(4)
+            $0.top.left.right.equalToSuperview().inset(4)
             $0.centerX.equalToSuperview()
         }
         
         moodView.snp.makeConstraints {
             $0.top.equalTo(infoLabel.snp.bottom).offset(4)
-            $0.left.right.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(4)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(30)
+
         }
     }
     
     private func makeMoodView() -> UIStackView {
         let stackView = UIStackView().then {
-            $0.backgroundColor = .green
             $0.distribution = .fillEqually
             $0.alignment = .center
         }
         
-        let array = RandomGenerator.randomMoodArray()
+        let info = data?.moods.map(\.emoji) ?? []
         
-        array
+        info
             .map(makeLabel)
             .forEach(stackView.addArrangedSubview)
         

@@ -268,7 +268,6 @@ struct HomeView: View {
   private func chartView(
     viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
   ) -> some View {
-    let items = DatabaseManager.shared.fetchAllItems()
     ChartViewRepresentable()
       .frame(height: 360)
       .padding()
