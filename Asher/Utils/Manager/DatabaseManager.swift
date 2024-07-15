@@ -35,7 +35,7 @@ final class DatabaseManager {
         groupedItems.forEach { key, value in
             if !value.isEmpty {
                 let test = value.compactMap { $0.mood?.score }.reduce(0, +) / Double(value.count)
-                result.append(ChartInfo(date: key, score: test))
+                result.append(ChartInfo(date: key, score: test, moods: value.compactMap(\.mood)))
             }
         }
         
@@ -85,7 +85,10 @@ extension DatabaseManager {
     struct ChartInfo {
         let date: String
         let score: Double
+        let moods: [Mood]
         
         var index: Double { date.removeDot }
+        
+        var day: String { date.toDate }
     }
 }

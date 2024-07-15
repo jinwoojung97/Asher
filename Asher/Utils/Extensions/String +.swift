@@ -27,4 +27,9 @@ public extension String {
         let prefix = self.prefix(10)
         return Double(prefix.replacingOccurrences(of: ".", with: "")) ?? .zero
     }
+    
+    var toDate: String {
+        let prefix = self.prefix(10)
+        return prefix.replacingOccurrences(of: ".", with: "/")
+    }
 }
