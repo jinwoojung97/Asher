@@ -19,6 +19,7 @@ struct HomeFeature: Reducer {
     var items: [Item] = []
     var selectedMonth: Date = .currentMonth
     var selectedDay: Date = .now
+    var updateSignal: UUID = UUID()
     var currentMonth: String { format("MMMM") }
     var year: String { format("YYYY") }
     
@@ -123,6 +124,7 @@ struct HomeFeature: Reducer {
     case menuTapped(MenuView.Menu)
     case selecteDay(Date)
     case updateMonth(Bool)
+    case updateSignalChanged
   }
   
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
@@ -169,6 +171,10 @@ struct HomeFeature: Reducer {
         state.monthUpdate(increment)
       }
       
+      return .none
+      
+    case .updateSignalChanged:
+      state.updateSignal = UUID()
       return .none
     }
   }

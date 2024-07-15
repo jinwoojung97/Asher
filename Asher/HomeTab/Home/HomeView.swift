@@ -205,9 +205,9 @@ struct HomeView: View {
             }
           }
           
-          capsuleText(text: "지우기") { viewStore.send(.deleteMood) }
+          capsuleText(text: "✏️지우기") { viewStore.send(.deleteMood) }
           
-          capsuleText(text: "초기화") { viewStore.send(.clearMood) }
+          capsuleText(text: "🧨초기화") { viewStore.send(.clearMood) }
           
         }
         .padding(.horizontal, 16)
@@ -268,9 +268,14 @@ struct HomeView: View {
   private func chartView(
     viewStore: ViewStore<HomeFeature.State, HomeFeature.Action>
   ) -> some View {
-    ChartViewRepresentable()
-      .frame(height: 360)
-      .padding()
+    ChartViewRepresentable(
+      updateSignal: viewStore.binding(
+        get: \.updateSignal,
+        send: HomeFeature.Action.updateSignalChanged
+      )
+    )
+      .frame(height: 380)
+      .padding([.horizontal, .bottom])
   }
   
   @ViewBuilder
