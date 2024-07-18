@@ -200,37 +200,19 @@ struct HomeView: View {
             let selectedMood = currentMood?.last == mood
             let background: Color = selectedMood ? .current: .border
             
-            capsuleText(text: "\(mood.emoji) \(mood.title)", background: background) {
+            CapsuleText(text: "\(mood.emoji) \(mood.title)", background: background) {
               viewStore.send(.addMood(mood))
             }
           }
           
-          capsuleText(text: "✏️지우기") { viewStore.send(.deleteMood) }
+          CapsuleText(text: "✏️지우기") { viewStore.send(.deleteMood) }
           
-          capsuleText(text: "🧨초기화") { viewStore.send(.clearMood) }
+          CapsuleText(text: "🧨초기화") { viewStore.send(.clearMood) }
           
         }
         .padding(.horizontal, 16)
       }
     }
-  }
-  
-  @ViewBuilder
-  private func capsuleText(
-    text: String,
-    background: Color = .border,
-    action: @escaping () -> ()
-  ) -> some View {
-    Button(action: action) {
-      Text(text)
-        .font(.notoSans(width: .medium, size: 14))
-        .foregroundStyle(.subtitleOn)
-        .setPadding(paddings: (.top, 5), (.bottom, 7))
-        .padding(.horizontal)
-        .background(background)
-        .clipShape(.capsule)
-    }
-    
   }
   
   @ViewBuilder
@@ -313,6 +295,24 @@ extension View {
   func setPadding(paddings: (edges: Edge.Set, length: CGFloat)...) -> some View {
     paddings.reduce(AnyView(self)) { view, padding in
       AnyView(view.padding(padding.edges, padding.length))
+    }
+  }
+}
+
+struct CapsuleText: View {
+  let text: String
+  var background: Color = .border
+  let action: () -> ()
+  
+  var body: some View {
+    Button(action: action) {
+      Text(text)
+        .font(.notoSans(width: .medium, size: 14))
+        .foregroundStyle(.subtitleOn)
+        .setPadding(paddings: (.top, 5), (.bottom, 7))
+        .padding(.horizontal)
+        .background(background)
+        .clipShape(.capsule)
     }
   }
 }
