@@ -53,7 +53,7 @@ final class MainNavigationViewController: UINavigationController {
 
 public final class RootViewController: UITabBarController {
     let firstVc = UIHostingController(rootView: HomeView())
-    let secondVc = TestNavigationViewController(color: .green)
+    let secondVc = UIHostingController(rootView: TalkListView())
     let thirdVc = UIHostingController(rootView: SettingView())
     
     let disposeBag = DisposeBag()
@@ -139,19 +139,6 @@ enum Features {
     }
 }
 
-
-class TestNavigationViewController: UIViewController {
-    init(color: UIColor) {
-        super.init(nibName: nil, bundle: nil)
-        
-        self.view.backgroundColor = color
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 struct RootViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> MainNavigationViewController {
         return MainNavigationViewController()
@@ -161,3 +148,4 @@ struct RootViewControllerRepresentable: UIViewControllerRepresentable {
         // 필요 시 UIViewController 업데이트
     }
 }
+
