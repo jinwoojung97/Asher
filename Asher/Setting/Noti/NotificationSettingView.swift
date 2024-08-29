@@ -7,39 +7,92 @@
 
 import SwiftUI
 
+import ComposableArchitecture
+
 struct NotificationSettingView: View {
   @State var notifiIsOn: Bool = false
+  @State var store = Store(initialState: NotificationFeature.State()) { NotificationFeature() }
   let customHeaderView: CustomHeaderView
   
   var body: some View {
-    customHeaderView
-    ScrollView {
-      Toggle(isOn: $notifiIsOn) {
-        Text("알림 설정")
-      }.padding()
-      
-      //      LazyVGrid(columns: columns) {
-      ChipLayout(verticalSpacing: 8, horizontalSpacing: 8) {
-        ForEach(Days.allCases, id: \.self) { day in
-          Text(day.text)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 5)
-            .background(
-              Capsule().foregroundStyle(.blue)
+    WithViewStore(store, observe: { $0 }) { viewStore in
+      customHeaderView
+      GeometryReader { _ in
+        VStack(spacing: 4) {
+          Toggle(isOn: viewStore.binding(get: \.notiInfo.useNoti, send: { .setUseNoti($0) })) {
+            Text("알림 설정")
+          }
+          .padding(.horizontal)
+          .padding(.bottom, 4)
+          
+          Divider()
+          
+          let useNoti = viewStore.state.notiInfo.useNoti
+          
+          if useNoti {
+            checkDayView()
+            
+            DatePicker(
+              "",
+              selection: viewStore.binding(get: \.notiInfo.notiTime, send: { .setNotiTime($0) }),
+              displayedComponents: .hourAndMinute
             )
+              .datePickerStyle(.wheel)
+              .labelsHidden()
+          } else {
+            Text("wow")
+          }
           
         }
-      }.padding(.horizontal)
-      
+      }
+      .onAppear { viewStore.send(.onAppear) }
+      .onDisappear { viewStore.send(.onDisappear) }
     }
+  }
+  
+  @ViewBuilder
+  private func checkDayView() -> some View {
+    WithViewStore(store, observe: { $0 }) { viewStore in
+      Text("요일 설정")
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, 16)
+        .padding(.vertical, 4)
+      
+      ScrollView(.horizontal) {
+        HStack {
+          ForEach(Days.allCases, id: \.self) { day in
+            let selectedDay = viewStore.state.notiInfo.selectedDay.contains(day)
+            let background: Color = selectedDay ? .current: .border
+            CapsuleText(text: day.text, background: background) {
+              viewStore.send(.setSelectedDay(day))
+            }
+          }
+        }
+        .padding(.horizontal, 16)
+      }
+      .scrollIndicators(.never)
+      
+      HStack {
+          ForEach(DaySetting.allCases, id: \.self) { setting in
+            let selectedSetting = viewStore.state.notiInfo.selectedDay == setting.daySetting
+            let background: Color = selectedSetting ? .current: .border
+            
+            CapsuleText(text: setting.text, background: background) {
+              viewStore.send(.setDaySetting(setting))
+            }
+          }
+        Spacer()
+      }
+      .padding(.horizontal, 16)
+    }.padding(.bottom, 4)
   }
 }
 
-//#Preview {
-//  NotificationSettingView(notifiIsOn: false, customHeaderView: CustomHeaderView(action: { }, title: ""))
-//}
+#Preview {
+  NotificationSettingView(notifiIsOn: false, customHeaderView: CustomHeaderView(action: { }, title: ""))
+}
 
-public enum Days: Int {
+enum Days: Int {
   case sun = 1
   case mon
   case tue
@@ -47,6 +100,8 @@ public enum Days: Int {
   case thu
   case fri
   case sat
+  
+  static let current: Days = Days(rawValue: Calendar.current.component(.weekday, from: Date())) ?? .mon
   
   var text: String {
     switch self {
@@ -61,7 +116,28 @@ public enum Days: Int {
   }
 }
 
-extension Days: CaseIterable { }
+extension Days: CaseIterable, Codable { }
+
+enum DaySetting {
+    case everyday
+    case weekend
+  
+  var daySetting: Set<Days> {
+    switch self {
+    case .everyday: Set(Days.allCases)
+    case .weekend: [.sat, .sun]
+    }
+  }
+  
+  var text: String {
+    switch self {
+    case .everyday: "매일"
+    case .weekend: "주말"
+    }
+  }
+}
+
+extension DaySetting: CaseIterable { }
 
 struct ChipLayout: Layout {
   var verticalSpacing: CGFloat = 0
