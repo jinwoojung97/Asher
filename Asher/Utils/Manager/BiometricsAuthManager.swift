@@ -32,12 +32,12 @@ public final class BiometricsAuthManager {
         }
     }
     
-    public enum AuthenticationState {
+    public enum AuthenticationState: Equatable {
         case loggedIn
         case fail(AuthError)
     }
     
-    public enum AuthError {
+    public enum AuthError: Equatable {
         case userDenied
         case unkowned(String)
     }
@@ -53,7 +53,7 @@ public final class BiometricsAuthManager {
         /// 생체 인증이 실패한 경우, Username/Password를 입력하여 인증할 수 있는 버튼에 표출되는 문구
     }
     
-    public func execute() {
+    public func execute(completion: ((BiometricsAuthManager.AuthenticationState) -> ())? = nil) {
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             let reason = "Log in to your account"
@@ -62,14 +62,24 @@ public final class BiometricsAuthManager {
                 localizedReason: reason) { [weak self] isSuccess, error in
                     DispatchQueue.main.async {
                         if isSuccess {
+                            completion?(.loggedIn)
                             self?.delegate?.didUpdateState(.loggedIn)
                         } else {
+                            completion?(.fail(.userDenied))
                             self?.emitError(error: error as? NSError)
                         }
                     }
                 }
         } else {
-            emitError(error: error)
+            completion?(.fail(.userDenied))
+        }
+    }
+    
+    public func execute() async -> AuthenticationState {
+        return await withCheckedContinuation { continuation in
+            self.execute { state in
+                continuation.resume(returning: state)
+            }
         }
     }
     
