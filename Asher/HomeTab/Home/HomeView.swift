@@ -257,14 +257,14 @@ struct HomeView: View {
       )
     )
       .frame(height: 380)
-      .padding([.horizontal, .bottom])
+      .padding([.horizontal, .bottom], 16)
   }
   
   @ViewBuilder
   private func moodView(moods: [Mood]?) -> some View {
     if let moods {
       HStack(spacing: -5) {
-        ForEach(moods, id: \.id) { mood in
+        ForEach(moods) { mood in
           ZStack {
             Text(mood.emoji)
               .font(.notoSans(width: .medium, size: 10))
