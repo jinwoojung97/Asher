@@ -14,11 +14,13 @@ import SnapKit
 final class ChartView: UIView {
     lazy var chartView = LineChartView().then {
         $0.chartDescription.enabled = false
-        $0.dragEnabled = true
+        $0.dragEnabled = false
         $0.setScaleEnabled(true)
         $0.pinchZoomEnabled = true
         $0.data = testData()
         $0.setVisibleXRangeMaximum(10)
+        $0.maxVisibleCount = 10
+        $0.viewPortHandler.setMaximumScaleX(1.5)
         
         $0.gridBackgroundColor = .red
         $0.xAxis.drawGridLinesEnabled = false
@@ -49,7 +51,14 @@ final class ChartView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        chartView.moveViewToX(1)
+        let test = DatabaseManager.shared.fetchChartItems()
+            .sorted { $0.index < $1.index }
+            .map { ChartDataEntry(x: $0.index, y: $0.score, data: $0) }
+            .last
+        
+        if let test {
+            chartView.moveViewToX(test.x)
+        }
     }
     
     func updateChart() { chartView.data = testData() }
@@ -72,6 +81,7 @@ final class ChartView: UIView {
     }
     
     private func testData() -> ChartData {
+        guard !DatabaseManager.shared.fetchChartItems().isEmpty else { return ChartData() }
         var dataEntries: [ChartDataEntry] = []
         let chartData = DatabaseManager.shared.fetchChartItems()
             .sorted { $0.index < $1.index }
