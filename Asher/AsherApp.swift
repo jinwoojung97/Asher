@@ -32,26 +32,13 @@ struct AsherApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootViewControllerRepresentable()
-                .ignoresSafeArea(.all)
-                .onReceive(NotificationCenter.default.publisher(for: UIScene.willEnterForegroundNotification)) { _ in
-                    delegate.openLockScreen()
-                }
-                .onChange(of: scenePhase) { newScenePhase in
-                    switch newScenePhase {
-                    case .active where isStart:
+            ToastLayerView {
+                RootViewControllerRepresentable()
+                    .ignoresSafeArea(.all)
+                    .onReceive(NotificationCenter.default.publisher(for: UIScene.willEnterForegroundNotification)) { _ in
                         delegate.openLockScreen()
-                        isStart = false
-                        print("App is active")
-                    case .inactive:
-                        print("App is inactive")
-                    case .background:
-                        print("App is in background")
-                    @unknown default:
-                        print("unexpected Value")
                     }
-                }
-            //            ContentView()
+            }
             
         }
     }
