@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingView: View {
+  @State private var showLockScreen = false
   private let throttler = Throttler(for: .seconds(1))
   
   var body: some View {
@@ -26,11 +27,28 @@ struct SettingView: View {
         Spacer()
       }
     }
+    .fullScreenCover(isPresented: $showLockScreen) {
+      LockScreenViewControllerWrapper { didUnlock in
+        if didUnlock {
+          throttler.handleTrigger = { NavigationManager.shared.push(SettingType.screenLock.view) }
+          throttler.trigger.send(())
+        }
+      }
+        .ignoresSafeArea()
+    }
   }
   
   private func onTapGesture(type: SettingType) {
-    throttler.handleTrigger = { NavigationManager.shared.push(type.view) }
-    throttler.trigger.send(())
+    switch type {
+    case .screenLock:
+      if UserDefaultsManager.shared.usePassword { showLockScreen = true }
+      else { fallthrough }
+      
+    default:
+      throttler.handleTrigger = { NavigationManager.shared.push(type.view) }
+      throttler.trigger.send(())
+    }
+    
   }
   
   @ViewBuilder
@@ -53,4 +71,19 @@ struct SettingView: View {
 
 #Preview {
   SettingView()
+}
+
+struct LockScreenViewControllerWrapper: UIViewControllerRepresentable {
+  public var lockType: LockType = .enterLockScreen
+  public var unlockAction: ((Bool) -> ())? = nil
+  
+  func makeUIViewController(context: Context) -> some LockScreenViewController {
+    let viewController = LockScreenViewController(type: lockType)
+    
+    viewController.unlockAction = unlockAction
+    return viewController
+  }
+  
+  func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+  }
 }

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+import ComposableArchitecture
+
 extension SettingView {
   enum SettingType: CaseIterable {
     case notificationSetting
@@ -48,7 +50,10 @@ extension SettingView {
         
         switch self {
         case .notificationSetting: NotificationSettingView(customHeaderView: headerView)
-            
+        case .screenLock: ScreenLockView(customHeaderView: headerView)
+        case .contactUs: ContactView(store: Store(initialState: ConatactFeature.State(), reducer: {
+            ConatactFeature()
+        }), customHeaderView: headerView)
         default: headerView
 //        case .screenLock: return
 //        case .quotesSetting: return
