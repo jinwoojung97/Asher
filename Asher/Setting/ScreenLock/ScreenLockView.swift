@@ -58,7 +58,7 @@ struct ScreenLockView: View {
         .fullScreenCover(isPresented: viewStore.binding(get: \.openChangePassword, send: { _ in .openChangePassword })) {
           LockScreenViewControllerWrapper(lockType: .changePassword) { _ in }
         }
-        .alert("메시지", isPresented: viewStore.binding(get: \.showErrorAlert, send: { _ in .openAlert })) {
+        .alert("faceID를 설정할 수 없습니다.", isPresented: viewStore.binding(get: \.showErrorAlert, send: { _ in .openAlert })) {
           Button("설정", role: .cancel) {
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url)
