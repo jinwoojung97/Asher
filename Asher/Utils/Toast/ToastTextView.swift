@@ -119,7 +119,9 @@ fileprivate struct ToastView: View {
           .font(.title3)
       }
       
-      Text(item.title).foregroundStyle(.black)
+      Text(item.title)
+        .font(.notoSans(width: .regular, size: 14))
+        .foregroundStyle(.black)
     }
     .foregroundStyle(.white)
     .padding(.horizontal, 16)
