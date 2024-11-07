@@ -23,7 +23,7 @@ extension SettingView {
       switch self {
       case .notificationSetting: "알림 설정"
       case .screenLock: "화면 잠금"
-      case .quotesSetting: "명언 설정"
+      case .quotesSetting: "노래 설정"
       case .replayTutorial: "튜토리얼 다시보기"
       case .contactUs: "문의하기"
       case .chooseTheme: "테마 선택하기"

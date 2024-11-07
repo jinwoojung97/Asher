@@ -13,7 +13,8 @@ import ComposableArchitecture
 
 struct HomeView: View {
   @Environment(\.horizontalSizeClass) var horizontalSizeClass
-  @State var store = Store(initialState: HomeFeature.State(name: "연학")) { HomeFeature() }
+  @State var store = Store(initialState: HomeFeature.State(name: UserDefaultsManager.shared.nickname)) { HomeFeature() }
+  @State var nickName = ""
   
   var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
@@ -40,6 +41,23 @@ struct HomeView: View {
       .scrollTargetBehavior(CustomScrollBehavior(maxHeight: maxHeight - 50))
       .padding(.bottom, 75)
       .onAppear { viewStore.send(.fetchAll) }
+      .alert("닉네임을 설정해 주세요", isPresented: viewStore.binding(get: \.showAlert, send: { _ in .openAlert })) {
+        TextField("6글자 이하로 입력해 주세요.", text: $nickName)
+          .onChange(of: nickName) { oldValue, newValue in
+            if newValue.count > 6 {
+              nickName = String(newValue.prefix(6))
+              Toast.shared.present(toastItem: ToastItem(title: "6글자 이하로 입력해 주세요!"))
+            }
+          }
+        Button("설정", role: .cancel) {
+          if !nickName.isEmpty {
+            viewStore.send(.setName(nickName))
+            viewStore.send(.openAlert)
+          } else {
+            Toast.shared.present(toastItem: ToastItem(title: "닉네임을 1글자 이상 입력해 주세요!"))
+          }
+        }
+      }
     }
   }
   
@@ -78,11 +96,14 @@ struct HomeView: View {
       let progress = max(min((-minY / maxHeight), 1), 0)
       
       VStack(alignment: .leading, spacing: 0) {
-        Text("\(viewStore.name)님 환영해요.")
+        let nickNameIsEmtpy = viewStore.name == nil || viewStore.name?.isEmpty == true
+        let text = nickNameIsEmtpy ? "닉네임을 입력해주세요": "\(viewStore.name ?? "")님 환영해요"
+        Text(text)
           .font(.notoSans(width: .bold, size: 32))
           .padding(.bottom, 8)
           .frame(height: Const.welcomeMessageHeight)
           .foregroundStyle(.subtitleOn)
+          .onTapGesture { viewStore.send(.openAlert) }
         
         Text(viewStore.state.currentMonth)
           .font(.notoSans(width: .black, size: 35 - (10 * progress)))

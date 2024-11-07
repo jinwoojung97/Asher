@@ -55,13 +55,9 @@ struct NotificationFeature: Reducer {
       return .send(.saveNotiInfo)
     case .saveNotiInfo:
       let notiInfo = state.notiInfo
-      
-      if notiInfo.useNoti {
-        saveNoti(noti: state.notiInfo) { isSuccess in
-          print("saveNoti")
-          UserDefaultsManager.shared.notiSetting = notiInfo
-        }
-      } else { deleteAllNotifications() }
+      UserDefaultsManager.shared.notiSetting = notiInfo
+      if notiInfo.useNoti { saveNoti(noti: state.notiInfo) }
+      else { deleteAllNotifications() }
       
       
       return .none

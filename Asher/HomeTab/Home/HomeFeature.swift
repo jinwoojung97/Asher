@@ -15,13 +15,14 @@ struct HomeFeature: Reducer {
   @Dependency(\.databaseService) var databaseService
   
   struct State: Equatable {
-    var name: String
+    var name: String?
     var items: [Item] = []
     var selectedMonth: Date = .currentMonth
     var selectedDay: Date = .now
     var updateSignal: UUID = UUID()
     var currentMonth: String { format("MMMM") }
     var year: String { format("YYYY") }
+    var showAlert: Bool = false
     
     var calendarHeight: CGFloat { Const.calendarTitleViewHeight + Const.weekLabelHeight +
       UIApplication.shared.safeAreaInset.top + Const.topPadding + Const.bottomPadding +
@@ -123,6 +124,8 @@ struct HomeFeature: Reducer {
     case fetchAll
     case menuTapped(MenuView.Menu)
     case selecteDay(Date)
+    case setName(String)
+    case openAlert
     case updateMonth(Bool)
     case updateSignalChanged
   }
@@ -164,6 +167,15 @@ struct HomeFeature: Reducer {
       
     case .selecteDay(let date):
       state.selectedDay = date
+      return .none
+      
+    case .setName(let name):
+      state.name = name
+      UserDefaultsManager.shared.nickname = name
+      return .none
+      
+    case .openAlert:
+      state.showAlert.toggle()
       return .none
       
     case .updateMonth(let increment):

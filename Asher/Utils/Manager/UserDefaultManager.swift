@@ -9,6 +9,7 @@ import Foundation
 
 public struct UserDefaultsManager {
     fileprivate enum Key {
+        static let nickname = "nickname"
         static let usePassword = "usePassword"
         static let password = "password"
         static let useBiometricsAuth = "useBiometricsAuth"
@@ -25,6 +26,19 @@ public struct UserDefaultsManager {
     public static var shared = UserDefaultsManager()
     
     public let userDefaults = UserDefaults(suiteName: "group.com.chuchu.Asher")
+    
+    public var nickname: String {
+        get {
+            guard let nickname = userDefaults?.value(forKey: Key.nickname) as? String
+            else { return "" }
+            
+            return nickname
+        }
+        
+        set {
+            userDefaults?.set(newValue, forKey: Key.nickname)
+        }
+    }
     
     public var usePassword: Bool {
         get {

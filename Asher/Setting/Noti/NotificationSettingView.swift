@@ -40,7 +40,11 @@ struct NotificationSettingView: View {
               .datePickerStyle(.wheel)
               .labelsHidden()
           } else {
-            Text("wow")
+            Text("설정하면 시간에 맞게 알려줘요.")
+              .padding(.horizontal, 16)
+              .frame(maxWidth: .infinity, alignment: .leading)
+              .font(.notoSans(width: .medium, size: 16))
+              .foregroundStyle(.subtitle)
           }
           
         }

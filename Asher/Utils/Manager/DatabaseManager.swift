@@ -30,12 +30,14 @@ final class DatabaseManager {
         let items = fetchAllItems()
         var groupedItems: [String: [Item]] = [:]
         var result: [ChartInfo] = []
-        
+        var index: Double = 0
         items.forEach { groupedItems[$0.date, default: []].append($0) }
-        groupedItems.forEach { key, value in
+        let sortedItems = groupedItems.sorted { $0.key < $1.key }
+        sortedItems.forEach { key, value in
             if !value.isEmpty {
+                index += 1
                 let test = value.compactMap { $0.mood?.score }.reduce(0, +) / Double(value.count)
-                result.append(ChartInfo(date: key, score: test, moods: value.compactMap(\.mood)))
+                result.append(ChartInfo(date: key, score: test, moods: value.compactMap(\.mood), index: index))
             }
         }
         
@@ -87,7 +89,7 @@ extension DatabaseManager {
         let score: Double
         let moods: [Mood]
         
-        var index: Double { date.removeDot }
+        var index: Double = 0
         
         var day: String { date.toDate }
     }

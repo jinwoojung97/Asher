@@ -9,9 +9,7 @@ import Foundation
 
 struct Quote: Identifiable {
   var id = UUID()
-  var content: String
-  var author: String
+  var title: String
+  var artist: String
   var isFavorite: Bool
-  
-  var quote: String { "\"\(content)\"" }
 }

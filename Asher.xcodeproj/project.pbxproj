@@ -33,6 +33,13 @@
 		EF2C94872C16CDC7003B2304 /* NotoSansKR-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C947D2C16CB24003B2304 /* NotoSansKR-Bold.ttf */; };
 		EF2C94882C16CDC7003B2304 /* NotoSansKR-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C94782C16CB22003B2304 /* NotoSansKR-ExtraBold.ttf */; };
 		EF2C94892C16CDC7003B2304 /* NotoSansKR-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF2C947A2C16CB23003B2304 /* NotoSansKR-Black.ttf */; };
+		EF31A3542C4DEDA600C5817C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EF31A3532C4DEDA600C5817C /* FirebaseAnalytics */; };
+		EF31A3562C4DEDA600C5817C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EF31A3552C4DEDA600C5817C /* FirebaseCrashlytics */; };
+		EF31A3582C4DEDA600C5817C /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = EF31A3572C4DEDA600C5817C /* FirebasePerformance */; };
+		EF31A35A2C4DEDA600C5817C /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = EF31A3592C4DEDA600C5817C /* FirebaseRemoteConfig */; };
+		EF31A35D2C4DF50F00C5817C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF31A35C2C4DF50F00C5817C /* GoogleService-Info.plist */; };
+		EF31A36B2C4E427500C5817C /* NotificationFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31A36A2C4E427500C5817C /* NotificationFeature.swift */; };
+		EF31A36D2C4F356A00C5817C /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF31A36C2C4F356A00C5817C /* UserDefaultManager.swift */; };
 		EF3C753D2C12DA73002E58D3 /* AsherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3C753C2C12DA73002E58D3 /* AsherApp.swift */; };
 		EF3C753F2C12DA73002E58D3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3C753E2C12DA73002E58D3 /* ContentView.swift */; };
 		EF3C75412C12DA73002E58D3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3C75402C12DA73002E58D3 /* Item.swift */; };
@@ -42,6 +49,9 @@
 		EF3C75552C12E238002E58D3 /* TCACoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = EF3C75542C12E238002E58D3 /* TCACoordinators */; };
 		EF4530C22C44F65B00FA5668 /* ChartViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4530C12C44F65B00FA5668 /* ChartViewRepresentable.swift */; };
 		EF4530C42C44F6A700FA5668 /* GraphInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4530C32C44F6A700FA5668 /* GraphInfoView.swift */; };
+		EF4530D32C47883C00FA5668 /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4530D22C47883C00FA5668 /* TalkView.swift */; };
+		EF4530D52C48EFAD00FA5668 /* TalkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4530D42C48EFAD00FA5668 /* TalkListView.swift */; };
+		EF4530D72C49080900FA5668 /* TalkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4530D62C49080900FA5668 /* TalkViewController.swift */; };
 		EF4C0E4C2C3236AF00571CA6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4C0E4B2C3236AF00571CA6 /* DatabaseManager.swift */; };
 		EF56BB852C16DB670045394F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EF56BB842C16DB670045394F /* RxCocoa */; };
 		EF56BB872C16DB670045394F /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EF56BB862C16DB670045394F /* RxRelay */; };
@@ -52,7 +62,6 @@
 		EF56BB932C16DCA10045394F /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BB922C16DCA10045394F /* CustomTabbar.swift */; };
 		EF56BBBC2C16DDD30045394F /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BB9C2C16DDD30045394F /* FontManager.swift */; };
 		EF56BBBE2C16DDD30045394F /* IndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BB9E2C16DDD30045394F /* IndicatorManager.swift */; };
-		EF56BBC02C16DDD30045394F /* UserNotiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBA02C16DDD30045394F /* UserNotiManager.swift */; };
 		EF56BBC12C16DDD30045394F /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBA12C16DDD30045394F /* HapticManager.swift */; };
 		EF56BBC22C16DDD40045394F /* BiometricsAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBA22C16DDD30045394F /* BiometricsAuthManager.swift */; };
 		EF56BBC32C16DDD40045394F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBA32C16DDD30045394F /* NetworkManager.swift */; };
@@ -76,6 +85,11 @@
 		EF56BBD62C16DDD40045394F /* Encodable +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBB82C16DDD30045394F /* Encodable +.swift */; };
 		EF56BBD72C16DDD40045394F /* String +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBB92C16DDD30045394F /* String +.swift */; };
 		EF56BBD82C16DDD40045394F /* I18N.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56BBBB2C16DDD30045394F /* I18N.swift */; };
+		EF7775F52C8E7DC3009476A4 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7775F42C8E7DC3009476A4 /* ContactView.swift */; };
+		EF7775F72C8E7DC9009476A4 /* ConatactFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7775F62C8E7DC9009476A4 /* ConatactFeature.swift */; };
+		EF7775F92C9014A8009476A4 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EF7775F82C9014A8009476A4 /* ComposableArchitecture */; };
+		EF7775FE2C92C6C4009476A4 /* ToastTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7775FD2C92C6C4009476A4 /* ToastTextView.swift */; };
+		EF7776012C941B22009476A4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EF7776002C941B22009476A4 /* Alamofire */; };
 		EF81E46C2C20187000B11A46 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46B2C20187000B11A46 /* HomeView.swift */; };
 		EF81E46E2C210BDA00B11A46 /* Home + Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46D2C210BDA00B11A46 /* Home + Const.swift */; };
 		EF81E4702C229C6600B11A46 /* QuoteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF81E46F2C229C6600B11A46 /* QuoteScrollView.swift */; };
@@ -87,10 +101,18 @@
 		EFF687142C25468200FE5F07 /* DependencyValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF687132C25468200FE5F07 /* DependencyValues.swift */; };
 		EFF7B3942C3FB86600E84D8B /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF7B3932C3FB86600E84D8B /* ChartView.swift */; };
 		EFF7B3972C3FB8B600E84D8B /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = EFF7B3962C3FB8B600E84D8B /* DGCharts */; };
+		EFFCE2EE2C7EA629004D2E4B /* ScreenLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2ED2C7EA629004D2E4B /* ScreenLockView.swift */; };
+		EFFCE2F02C7EAA96004D2E4B /* ViewControllerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2EF2C7EAA96004D2E4B /* ViewControllerHolder.swift */; };
+		EFFCE2F22C7EAAC9004D2E4B /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2F12C7EAAC9004D2E4B /* LockScreenViewController.swift */; };
+		EFFCE2F42C7EAAF0004D2E4B /* LockScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2F32C7EAAF0004D2E4B /* LockScreenView.swift */; };
+		EFFCE2F62C7EAB22004D2E4B /* LockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2F52C7EAB22004D2E4B /* LockType.swift */; };
+		EFFCE2F82C7EAB42004D2E4B /* LockScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2F72C7EAB42004D2E4B /* LockScreenViewModel.swift */; };
+		EFFCE2FA2C7EAB5F004D2E4B /* PadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2F92C7EAB5F004D2E4B /* PadView.swift */; };
+		EFFCE2FC2C7EFF28004D2E4B /* ScreenLockFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFCE2FB2C7EFF28004D2E4B /* ScreenLockFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EBA0BD6D2C3008B7005EEC18 /* NotificationSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
+		EBA0BD6D2C3008B7005EEC18 /* NotificationSettingView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NotificationSettingView.swift; sourceTree = "<group>"; };
 		EF0166012C2D3A9300E40192 /* MeditationFeature.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = MeditationFeature.swift; sourceTree = "<group>"; };
 		EF0166042C2E4F1A00E40192 /* SettingView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		EF0166062C2E815D00E40192 /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
@@ -116,6 +138,9 @@
 		EF2C947B2C16CB23003B2304 /* NotoSansKR-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-ExtraLight.ttf"; sourceTree = "<group>"; };
 		EF2C947C2C16CB24003B2304 /* NotoSansKR-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.ttf"; sourceTree = "<group>"; };
 		EF2C947D2C16CB24003B2304 /* NotoSansKR-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.ttf"; sourceTree = "<group>"; };
+		EF31A35C2C4DF50F00C5817C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF31A36A2C4E427500C5817C /* NotificationFeature.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NotificationFeature.swift; sourceTree = "<group>"; };
+		EF31A36C2C4F356A00C5817C /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		EF3C75392C12DA73002E58D3 /* Asher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF3C753C2C12DA73002E58D3 /* AsherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsherApp.swift; sourceTree = "<group>"; };
 		EF3C753E2C12DA73002E58D3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,12 +151,14 @@
 		EF3C75482C12DA74002E58D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4530C12C44F65B00FA5668 /* ChartViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewRepresentable.swift; sourceTree = "<group>"; };
 		EF4530C32C44F6A700FA5668 /* GraphInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphInfoView.swift; sourceTree = "<group>"; };
+		EF4530D22C47883C00FA5668 /* TalkView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
+		EF4530D42C48EFAD00FA5668 /* TalkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkListView.swift; sourceTree = "<group>"; };
+		EF4530D62C49080900FA5668 /* TalkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkViewController.swift; sourceTree = "<group>"; };
 		EF4C0E4B2C3236AF00571CA6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		EF56BB902C16DBAE0045394F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		EF56BB922C16DCA10045394F /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		EF56BB9C2C16DDD30045394F /* FontManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
 		EF56BB9E2C16DDD30045394F /* IndicatorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorManager.swift; sourceTree = "<group>"; };
-		EF56BBA02C16DDD30045394F /* UserNotiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotiManager.swift; sourceTree = "<group>"; };
 		EF56BBA12C16DDD30045394F /* HapticManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		EF56BBA22C16DDD30045394F /* BiometricsAuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsAuthManager.swift; sourceTree = "<group>"; };
 		EF56BBA32C16DDD30045394F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -155,6 +182,9 @@
 		EF56BBB82C16DDD30045394F /* Encodable +.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable +.swift"; sourceTree = "<group>"; };
 		EF56BBB92C16DDD30045394F /* String +.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String +.swift"; sourceTree = "<group>"; };
 		EF56BBBB2C16DDD30045394F /* I18N.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18N.swift; sourceTree = "<group>"; };
+		EF7775F42C8E7DC3009476A4 /* ContactView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		EF7775F62C8E7DC9009476A4 /* ConatactFeature.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ConatactFeature.swift; sourceTree = "<group>"; };
+		EF7775FD2C92C6C4009476A4 /* ToastTextView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ToastTextView.swift; sourceTree = "<group>"; };
 		EF81E46B2C20187000B11A46 /* HomeView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF81E46D2C210BDA00B11A46 /* Home + Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home + Const.swift"; sourceTree = "<group>"; };
 		EF81E46F2C229C6600B11A46 /* QuoteScrollView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = QuoteScrollView.swift; sourceTree = "<group>"; };
@@ -165,6 +195,14 @@
 		EFF687112C22C9FD00FE5F07 /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
 		EFF687132C25468200FE5F07 /* DependencyValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyValues.swift; sourceTree = "<group>"; };
 		EFF7B3932C3FB86600E84D8B /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		EFFCE2ED2C7EA629004D2E4B /* ScreenLockView.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ScreenLockView.swift; sourceTree = "<group>"; };
+		EFFCE2EF2C7EAA96004D2E4B /* ViewControllerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHolder.swift; sourceTree = "<group>"; };
+		EFFCE2F12C7EAAC9004D2E4B /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
+		EFFCE2F32C7EAAF0004D2E4B /* LockScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenView.swift; sourceTree = "<group>"; };
+		EFFCE2F52C7EAB22004D2E4B /* LockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockType.swift; sourceTree = "<group>"; };
+		EFFCE2F72C7EAB42004D2E4B /* LockScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewModel.swift; sourceTree = "<group>"; };
+		EFFCE2F92C7EAB5F004D2E4B /* PadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadView.swift; sourceTree = "<group>"; };
+		EFFCE2FB2C7EFF28004D2E4B /* ScreenLockFeature.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ScreenLockFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,14 +210,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF31A3582C4DEDA600C5817C /* FirebasePerformance in Frameworks */,
+				EF7776012C941B22009476A4 /* Alamofire in Frameworks */,
 				EFF7B3972C3FB8B600E84D8B /* DGCharts in Frameworks */,
 				EF56BB852C16DB670045394F /* RxCocoa in Frameworks */,
+				EF31A35A2C4DEDA600C5817C /* FirebaseRemoteConfig in Frameworks */,
 				EF3C75552C12E238002E58D3 /* TCACoordinators in Frameworks */,
 				EF56BB892C16DB670045394F /* RxSwift in Frameworks */,
 				EF56BB8F2C16DBA20045394F /* Then in Frameworks */,
 				EF56BB8C2C16DB7A0045394F /* SnapKit in Frameworks */,
 				EF56BB872C16DB670045394F /* RxRelay in Frameworks */,
+				EF31A3562C4DEDA600C5817C /* FirebaseCrashlytics in Frameworks */,
 				EF3C75522C12E1C4002E58D3 /* ComposableArchitecture in Frameworks */,
+				EF7775F92C9014A8009476A4 /* ComposableArchitecture in Frameworks */,
+				EF31A3542C4DEDA600C5817C /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				EBA0BD6D2C3008B7005EEC18 /* NotificationSettingView.swift */,
+				EF31A36A2C4E427500C5817C /* NotificationFeature.swift */,
 			);
 			path = Noti;
 			sourceTree = "<group>";
@@ -197,8 +242,11 @@
 		EF0166032C2E4F0B00E40192 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				EF7775F32C8E7DB8009476A4 /* Contact */,
+				EFFCE2EC2C7EA619004D2E4B /* ScreenLock */,
 				EBA0BD6C2C3008A4005EEC18 /* Noti */,
 				EF0166042C2E4F1A00E40192 /* SettingView.swift */,
+				EFFCE2EF2C7EAA96004D2E4B /* ViewControllerHolder.swift */,
 				EF01660E2C2E832700E40192 /* SettingView + Type.swift */,
 			);
 			path = Setting;
@@ -295,7 +343,6 @@
 		EF3C75302C12DA73002E58D3 = {
 			isa = PBXGroup;
 			children = (
-				EF0166082C2E818700E40192 /* Throttler.swift */,
 				EF3C753B2C12DA73002E58D3 /* Asher */,
 				EF3C753A2C12DA73002E58D3 /* Products */,
 			);
@@ -316,6 +363,7 @@
 				EF56BB952C16DD020045394F /* Utils */,
 				EF3C753C2C12DA73002E58D3 /* AsherApp.swift */,
 				EF16DDE62C1C2BE5004D1AA1 /* SwiftData */,
+				EF4530D12C47882500FA5668 /* Talk */,
 				EF0166032C2E4F0B00E40192 /* Setting */,
 				EF16DDE52C1C2BC6004D1AA1 /* HomeTab */,
 				EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */,
@@ -342,6 +390,16 @@
 			path = ChartView;
 			sourceTree = "<group>";
 		};
+		EF4530D12C47882500FA5668 /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				EF4530D22C47883C00FA5668 /* TalkView.swift */,
+				EF4530D62C49080900FA5668 /* TalkViewController.swift */,
+				EF4530D42C48EFAD00FA5668 /* TalkListView.swift */,
+			);
+			path = Talk;
+			sourceTree = "<group>";
+		};
 		EF56BB822C16DB3D0045394F /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +420,7 @@
 		EF56BB952C16DD020045394F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EF7775FC2C92C6B4009476A4 /* Toast */,
 				EF56BBA62C16DDD30045394F /* Extensions */,
 				EF56BBBA2C16DDD30045394F /* Localize */,
 				EF56BB9B2C16DDD30045394F /* Manager */,
@@ -372,6 +431,7 @@
 		EF56BB962C16DD0E0045394F /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				EF31A35C2C4DF50F00C5817C /* GoogleService-Info.plist */,
 				EF3C75442C12DA74002E58D3 /* Preview Content */,
 				EF3C75472C12DA74002E58D3 /* Asher.entitlements */,
 				EF3C75482C12DA74002E58D3 /* Info.plist */,
@@ -386,13 +446,14 @@
 			children = (
 				EF56BB9C2C16DDD30045394F /* FontManager.swift */,
 				EF56BB9E2C16DDD30045394F /* IndicatorManager.swift */,
-				EF56BBA02C16DDD30045394F /* UserNotiManager.swift */,
+				EF31A36C2C4F356A00C5817C /* UserDefaultManager.swift */,
 				EF56BBA12C16DDD30045394F /* HapticManager.swift */,
 				EF56BBA22C16DDD30045394F /* BiometricsAuthManager.swift */,
 				EF56BBA32C16DDD30045394F /* NetworkManager.swift */,
 				EF56BBA42C16DDD30045394F /* UpdateManager.swift */,
 				EF56BBA52C16DDD30045394F /* CloudKitManager.swift */,
 				EF231E2E2C2C088200AB5EA7 /* NavigationManager.swift */,
+				EF0166082C2E818700E40192 /* Throttler.swift */,
 				EF0166062C2E815D00E40192 /* Debouncer.swift */,
 				EF4C0E4B2C3236AF00571CA6 /* DatabaseManager.swift */,
 			);
@@ -441,6 +502,23 @@
 			path = Localize;
 			sourceTree = "<group>";
 		};
+		EF7775F32C8E7DB8009476A4 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				EF7775F42C8E7DC3009476A4 /* ContactView.swift */,
+				EF7775F62C8E7DC9009476A4 /* ConatactFeature.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		EF7775FC2C92C6B4009476A4 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				EF7775FD2C92C6C4009476A4 /* ToastTextView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		EFF687082C22C1A000FE5F07 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +527,20 @@
 				EFF6870D2C22C1CE00FE5F07 /* Mood.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EFFCE2EC2C7EA619004D2E4B /* ScreenLock */ = {
+			isa = PBXGroup;
+			children = (
+				EFFCE2ED2C7EA629004D2E4B /* ScreenLockView.swift */,
+				EFFCE2FB2C7EFF28004D2E4B /* ScreenLockFeature.swift */,
+				EFFCE2F92C7EAB5F004D2E4B /* PadView.swift */,
+				EFFCE2F72C7EAB42004D2E4B /* LockScreenViewModel.swift */,
+				EFFCE2F52C7EAB22004D2E4B /* LockType.swift */,
+				EFFCE2F32C7EAAF0004D2E4B /* LockScreenView.swift */,
+				EFFCE2F12C7EAAC9004D2E4B /* LockScreenViewController.swift */,
+			);
+			path = ScreenLock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +553,7 @@
 				EF3C75352C12DA73002E58D3 /* Sources */,
 				EF3C75362C12DA73002E58D3 /* Frameworks */,
 				EF3C75372C12DA73002E58D3 /* Resources */,
+				EF31A35B2C4DEF9100C5817C /* FireBaseCrash */,
 			);
 			buildRules = (
 			);
@@ -476,6 +569,12 @@
 				EF56BB8B2C16DB7A0045394F /* SnapKit */,
 				EF56BB8E2C16DBA20045394F /* Then */,
 				EFF7B3962C3FB8B600E84D8B /* DGCharts */,
+				EF31A3532C4DEDA600C5817C /* FirebaseAnalytics */,
+				EF31A3552C4DEDA600C5817C /* FirebaseCrashlytics */,
+				EF31A3572C4DEDA600C5817C /* FirebasePerformance */,
+				EF31A3592C4DEDA600C5817C /* FirebaseRemoteConfig */,
+				EF7775F82C9014A8009476A4 /* ComposableArchitecture */,
+				EF7776002C941B22009476A4 /* Alamofire */,
 			);
 			productName = Asher;
 			productReference = EF3C75392C12DA73002E58D3 /* Asher.app */;
@@ -512,6 +611,8 @@
 				EF56BB8A2C16DB7A0045394F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				EF56BB8D2C16DBA20045394F /* XCRemoteSwiftPackageReference "Then" */,
 				EFF7B3952C3FB8B600E84D8B /* XCRemoteSwiftPackageReference "Charts" */,
+				EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EF7775FF2C941B22009476A4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = EF3C753A2C12DA73002E58D3 /* Products */;
 			projectDirPath = "";
@@ -532,6 +633,7 @@
 				EF2C94872C16CDC7003B2304 /* NotoSansKR-Bold.ttf in Resources */,
 				EF2C94802C16CB24003B2304 /* NotoSansKR-Regular.ttf in Resources */,
 				EF2C94842C16CB24003B2304 /* NotoSansKR-ExtraLight.ttf in Resources */,
+				EF31A35D2C4DF50F00C5817C /* GoogleService-Info.plist in Resources */,
 				EF3C75462C12DA74002E58D3 /* Preview Assets.xcassets in Resources */,
 				EF2C94852C16CB24003B2304 /* NotoSansKR-Thin.ttf in Resources */,
 				EF2C94892C16CDC7003B2304 /* NotoSansKR-Black.ttf in Resources */,
@@ -543,6 +645,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EF31A35B2C4DEF9100C5817C /* FireBaseCrash */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = FireBaseCrash;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n#osascript -e 'tell app \"Finder\" to display dialog \"Hello World\"' \n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EF3C75352C12DA73002E58D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -553,17 +678,26 @@
 				EF81E46E2C210BDA00B11A46 /* Home + Const.swift in Sources */,
 				EF0166092C2E818700E40192 /* Throttler.swift in Sources */,
 				EF56BBC12C16DDD30045394F /* HapticManager.swift in Sources */,
+				EF31A36B2C4E427500C5817C /* NotificationFeature.swift in Sources */,
 				EFF6870A2C22C1C000FE5F07 /* Day.swift in Sources */,
+				EF4530D32C47883C00FA5668 /* TalkView.swift in Sources */,
+				EFFCE2FA2C7EAB5F004D2E4B /* PadView.swift in Sources */,
 				EF56BBD32C16DDD40045394F /* UIViewController +.swift in Sources */,
+				EFFCE2F22C7EAAC9004D2E4B /* LockScreenViewController.swift in Sources */,
+				EF7775FE2C92C6C4009476A4 /* ToastTextView.swift in Sources */,
+				EF7775F52C8E7DC3009476A4 /* ContactView.swift in Sources */,
 				EF81E4722C229C7600B11A46 /* LoopingScrollView.swift in Sources */,
 				EF56BBCC2C16DDD40045394F /* UIScrollView +.swift in Sources */,
+				EFFCE2F62C7EAB22004D2E4B /* LockType.swift in Sources */,
 				EF56BBD02C16DDD40045394F /* CACornerMask +.swift in Sources */,
 				EF16DDE42C1C2BBF004D1AA1 /* MenuView.swift in Sources */,
 				EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */,
 				EFF6870E2C22C1CE00FE5F07 /* Mood.swift in Sources */,
+				EFFCE2F42C7EAAF0004D2E4B /* LockScreenView.swift in Sources */,
 				EF3C753F2C12DA73002E58D3 /* ContentView.swift in Sources */,
 				EFF687122C22C9FD00FE5F07 /* AppStorageManager.swift in Sources */,
 				EF4C0E4C2C3236AF00571CA6 /* DatabaseManager.swift in Sources */,
+				EF31A36D2C4F356A00C5817C /* UserDefaultManager.swift in Sources */,
 				EF56BB932C16DCA10045394F /* CustomTabbar.swift in Sources */,
 				EF81E46C2C20187000B11A46 /* HomeView.swift in Sources */,
 				EF56BBC62C16DDD40045394F /* Date +.swift in Sources */,
@@ -571,7 +705,9 @@
 				EFF7B3942C3FB86600E84D8B /* ChartView.swift in Sources */,
 				EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */,
 				EFF687142C25468200FE5F07 /* DependencyValues.swift in Sources */,
+				EF4530D52C48EFAD00FA5668 /* TalkListView.swift in Sources */,
 				EF56BBC52C16DDD40045394F /* CloudKitManager.swift in Sources */,
+				EFFCE2F02C7EAA96004D2E4B /* ViewControllerHolder.swift in Sources */,
 				EF0166072C2E815D00E40192 /* Debouncer.swift in Sources */,
 				EF56BBBE2C16DDD30045394F /* IndicatorManager.swift in Sources */,
 				EF0166052C2E4F1A00E40192 /* SettingView.swift in Sources */,
@@ -579,6 +715,7 @@
 				EF56BBCB2C16DDD40045394F /* UILabel +.swift in Sources */,
 				EF56BBC72C16DDD40045394F /* Reactive +.swift in Sources */,
 				EF56BB912C16DBAE0045394F /* RootViewController.swift in Sources */,
+				EFFCE2EE2C7EA629004D2E4B /* ScreenLockView.swift in Sources */,
 				EF01660F2C2E832700E40192 /* SettingView + Type.swift in Sources */,
 				EF56BBC22C16DDD40045394F /* BiometricsAuthManager.swift in Sources */,
 				EF56BBD82C16DDD40045394F /* I18N.swift in Sources */,
@@ -588,14 +725,16 @@
 				EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */,
 				EF231E2F2C2C088300AB5EA7 /* NavigationManager.swift in Sources */,
 				EF56BBCD2C16DDD40045394F /* UIApplication +.swift in Sources */,
-				EF56BBC02C16DDD30045394F /* UserNotiManager.swift in Sources */,
 				EF3C75412C12DA73002E58D3 /* Item.swift in Sources */,
 				EF56BBC42C16DDD40045394F /* UpdateManager.swift in Sources */,
+				EFFCE2F82C7EAB42004D2E4B /* LockScreenViewModel.swift in Sources */,
 				EF56BBC32C16DDD40045394F /* NetworkManager.swift in Sources */,
 				EF4530C22C44F65B00FA5668 /* ChartViewRepresentable.swift in Sources */,
 				EF56BBBC2C16DDD30045394F /* FontManager.swift in Sources */,
+				EFFCE2FC2C7EFF28004D2E4B /* ScreenLockFeature.swift in Sources */,
 				EFF6870C2C22C1C600FE5F07 /* Quote.swift in Sources */,
 				EF16DDEA2C1C2C32004D1AA1 /* HomeFeature.swift in Sources */,
+				EF7775F72C8E7DC9009476A4 /* ConatactFeature.swift in Sources */,
 				EF81E4702C229C6600B11A46 /* QuoteScrollView.swift in Sources */,
 				EF56BBC82C16DDD40045394F /* Toast +.swift in Sources */,
 				EF16DDEE2C1C2C8F004D1AA1 /* MenuView + Menu.swift in Sources */,
@@ -608,6 +747,7 @@
 				EF56BBD72C16DDD40045394F /* String +.swift in Sources */,
 				EF56BBD12C16DDD40045394F /* UIView +.swift in Sources */,
 				EF56BBD42C16DDD40045394F /* RemoteConfigValue +.swift in Sources */,
+				EF4530D72C49080900FA5668 /* TalkViewController.swift in Sources */,
 				EF56BBC92C16DDD40045394F /* UITextField +.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,9 +882,11 @@
 				CODE_SIGN_ENTITLEMENTS = Asher/Support/Asher.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Asher/Support/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QDV2VZHAS;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Asher/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -776,6 +918,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Asher/Support/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QDV2VZHAS;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Asher/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -820,12 +963,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
 		EF3C75502C12E1C3002E58D3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.11.0;
+				kind = exactVersion;
+				version = 1.14.0;
 			};
 		};
 		EF3C75532C12E238002E58D3 /* XCRemoteSwiftPackageReference "TCACoordinators" */ = {
@@ -860,6 +1011,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		EF7775FF2C941B22009476A4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 		EFF7B3952C3FB8B600E84D8B /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
@@ -871,6 +1030,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF31A3532C4DEDA600C5817C /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		EF31A3552C4DEDA600C5817C /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		EF31A3572C4DEDA600C5817C /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		EF31A3592C4DEDA600C5817C /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
 		EF3C75512C12E1C3002E58D3 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EF3C75502C12E1C3002E58D3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
@@ -905,6 +1084,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EF56BB8D2C16DBA20045394F /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		EF7775F82C9014A8009476A4 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF3C75502C12E1C3002E58D3 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		EF7776002C941B22009476A4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF7775FF2C941B22009476A4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		EFF7B3962C3FB8B600E84D8B /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
