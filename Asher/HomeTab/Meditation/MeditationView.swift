@@ -31,7 +31,7 @@ struct MeditationView: View {
             Spacer()
           }
           
-          Text("명상하기")
+          Text("명상하기test")
             .font(.notoSans(width: .bold, size: 18))
             .foregroundStyle(.subtitleOn)
         }
