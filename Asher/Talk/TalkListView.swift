@@ -9,11 +9,16 @@ import SwiftUI
 
 struct TalkListView: View {
     var body: some View {
-        inspectionView
-            .background(.main1)
-//        Button(action: {NavigationManager.shared.push(TalkRepresentable())}, label: {
-//            /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
-//        })
+        if !UserDefaultsManager.shared.isInspected {
+            inspectionView
+                .background(.main1)
+        } else {
+            Button(action: {NavigationManager.shared.push(TalkRepresentable())}, label: {
+                /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+            })
+        }
+        
+        
     }
     
     @ViewBuilder

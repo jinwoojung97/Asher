@@ -21,6 +21,7 @@ public struct UserDefaultsManager {
         static let inquiryDic = "inquiryCount"
         static let contactUrl = "contactUrl"
         static let widgetLink = "widgetLink"
+        static let isInspected = "isInspected"
     }
     
     public static var shared = UserDefaultsManager()
@@ -165,6 +166,16 @@ public struct UserDefaultsManager {
             return contactUrl
         }
         set { userDefaults?.set(newValue, forKey: Key.contactUrl) }
+    }
+    
+    public var isInspected: Bool {
+        get {
+            guard let isInspected = userDefaults?.value(forKey: Key.isInspected) as? Bool
+            else { return true }
+            
+            return isInspected
+        }
+        set { userDefaults?.set(newValue, forKey: Key.isInspected) }
     }
     
 //    public var widgetLink: Core.Link? {

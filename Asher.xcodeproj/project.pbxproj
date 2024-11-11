@@ -16,6 +16,9 @@
 		EF0166092C2E818700E40192 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0166082C2E818700E40192 /* Throttler.swift */; };
 		EF01660D2C2E81EA00E40192 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF01660C2C2E81EA00E40192 /* CustomHeaderView.swift */; };
 		EF01660F2C2E832700E40192 /* SettingView + Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF01660E2C2E832700E40192 /* SettingView + Type.swift */; };
+		EF07A5B52CE1920700E1780B /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B42CE1920700E1780B /* ChatInputView.swift */; };
+		EF07A5B72CE1A1F300E1780B /* TalkViewController + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */; };
+		EF07A5B92CE1CA1E00E1780B /* ChatInputVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B82CE1CA1E00E1780B /* ChatInputVIewModel.swift */; };
 		EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */; };
 		EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */; };
 		EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDF2C1C1F47004D1AA1 /* View +.swift */; };
@@ -123,6 +126,9 @@
 		EF0166082C2E818700E40192 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		EF01660C2C2E81EA00E40192 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		EF01660E2C2E832700E40192 /* SettingView + Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingView + Type.swift"; sourceTree = "<group>"; };
+		EF07A5B42CE1920700E1780B /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
+		EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TalkViewController + Keyboard.swift"; sourceTree = "<group>"; };
+		EF07A5B82CE1CA1E00E1780B /* ChatInputVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputVIewModel.swift; sourceTree = "<group>"; };
 		EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTabbar + Tab.swift"; sourceTree = "<group>"; };
 		EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		EF16DDDF2C1C1F47004D1AA1 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
@@ -273,6 +279,15 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		EF07A5BA2CE1CA2300E1780B /* ChatInput */ = {
+			isa = PBXGroup;
+			children = (
+				EF07A5B42CE1920700E1780B /* ChatInputView.swift */,
+				EF07A5B82CE1CA1E00E1780B /* ChatInputVIewModel.swift */,
+			);
+			path = ChatInput;
+			sourceTree = "<group>";
+		};
 		EF16DDDE2C1C1F3C004D1AA1 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +416,8 @@
 			children = (
 				EF4530D22C47883C00FA5668 /* TalkView.swift */,
 				EF4530D62C49080900FA5668 /* TalkViewController.swift */,
+				EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */,
+				EF07A5BA2CE1CA2300E1780B /* ChatInput */,
 				EF4530D42C48EFAD00FA5668 /* TalkListView.swift */,
 			);
 			path = Talk;
@@ -686,6 +703,7 @@
 				EF0166092C2E818700E40192 /* Throttler.swift in Sources */,
 				EF56BBC12C16DDD30045394F /* HapticManager.swift in Sources */,
 				EF31A36B2C4E427500C5817C /* NotificationFeature.swift in Sources */,
+				EF07A5B52CE1920700E1780B /* ChatInputView.swift in Sources */,
 				EFF6870A2C22C1C000FE5F07 /* Day.swift in Sources */,
 				EF4530D32C47883C00FA5668 /* TalkView.swift in Sources */,
 				EFFCE2FA2C7EAB5F004D2E4B /* PadView.swift in Sources */,
@@ -722,6 +740,7 @@
 				EF16DDE22C1C2997004D1AA1 /* AlignmentedText.swift in Sources */,
 				EF56BBCB2C16DDD40045394F /* UILabel +.swift in Sources */,
 				EF56BBC72C16DDD40045394F /* Reactive +.swift in Sources */,
+				EF07A5B92CE1CA1E00E1780B /* ChatInputVIewModel.swift in Sources */,
 				EF56BB912C16DBAE0045394F /* RootViewController.swift in Sources */,
 				EFFCE2EE2C7EA629004D2E4B /* ScreenLockView.swift in Sources */,
 				EF01660F2C2E832700E40192 /* SettingView + Type.swift in Sources */,
@@ -735,6 +754,7 @@
 				EF56BBCD2C16DDD40045394F /* UIApplication +.swift in Sources */,
 				EF3C75412C12DA73002E58D3 /* Item.swift in Sources */,
 				EF56BBC42C16DDD40045394F /* UpdateManager.swift in Sources */,
+				EF07A5B72CE1A1F300E1780B /* TalkViewController + Keyboard.swift in Sources */,
 				EFFCE2F82C7EAB42004D2E4B /* LockScreenViewModel.swift in Sources */,
 				EF56BBC32C16DDD40045394F /* NetworkManager.swift in Sources */,
 				EF4530C22C44F65B00FA5668 /* ChartViewRepresentable.swift in Sources */,
