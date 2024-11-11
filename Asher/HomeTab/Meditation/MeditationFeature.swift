@@ -6,22 +6,28 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 import ComposableArchitecture
 
 struct MeditationFeature: Reducer {
-  @AppStorage("initialCount") var initialCount: Int = 300
+  @AppStorage("initialCount") var initialCount: Int = 600
   @Dependency (\.continuousClock) var clock
+  
   struct State: Equatable {
-    var initialCount: Int = 300
-    var count: Int = 300
-    var timeComponent = TimeComponent(time: 300)
+    var initialCount: Int = 600
+    var count: Int = 600
+    var timeComponent = TimeComponent(time: 600)
     var isTimerRunning = false
+    var isSettingTime = false
+    
+    var player: AVAudioPlayer?
   }
   
   enum CancelID { case timer }
   
   enum Action: Equatable {
+    case setTimeTapped
     case backButtonTapped
     case timerTick
     case setInitialCount(Int)
@@ -31,6 +37,11 @@ struct MeditationFeature: Reducer {
   
   func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
+    case .setTimeTapped:
+      withAnimation {
+        state.isSettingTime.toggle()
+      }
+      return .none
     case .backButtonTapped:
       NavigationManager.shared.pop()
       return .none
