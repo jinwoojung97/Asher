@@ -32,19 +32,10 @@ final class TalkView: UIView {
         $0.allowsSelection = false
         $0.separatorColor = .clear
         $0.backgroundColor = .clear
-
-        
         $0.register(TestCell.self, forCellReuseIdentifier: TestCell.identifier)
     }
     
-    let textField = UITextView().then {
-        $0.backgroundColor = .black
-    }
-    
-    let testButton = UIButton().then {
-        $0.backgroundColor = .purple
-        $0.setTitle("테스트", for: .normal)
-    }
+    let chatInputView = ChatInputView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,19 +50,38 @@ final class TalkView: UIView {
         addComponent()
         setConstraints()
         bind()
+        addNotification()
     }
     
     private func addComponent() {
-        addSubview(tableView)
+        [tableView, chatInputView].forEach(addSubview)
     }
     
     private func setConstraints() {
-        tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(safeAreaInsets)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(chatInputView.snp.top)
+        }
+        
+        chatInputView.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(keyboardLayoutGuide.snp.top)
+        }
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
+        scrollToBottom()
+    }
+    
+    func scrollToBottom() {
+        let indexPath = IndexPath(row: messages.count - 1, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+    }
+    
+    private func test() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
             UIColor(red: 217/255, green: 122/255, blue: 132/255, alpha: 1).cgColor, // Dark Pastel Pink
@@ -86,10 +96,11 @@ final class TalkView: UIView {
         tableView.backgroundView = backgroundView
     }
     
-    private func bind() {
-        testButton.rx.tap
-            .bind { print("wow") }
-            .disposed(by: disposeBag)
+    private func bind() { }
+    
+    private func addNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustOnKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustOnKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
 
@@ -152,7 +163,6 @@ final class TestCell: UITableViewCell {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        applyMask()
     }
     
     private func commonInit() {
@@ -163,15 +173,6 @@ final class TestCell: UITableViewCell {
     
     private func addComponent() {
         contentView.addSubview(testWrapperView)
-        let test = UIView().then {
-            $0.backgroundColor = .red
-        }
-        contentView.addSubview(test)
-        
-        test.snp.makeConstraints {
-            $0.center.equalTo(testWrapperView)
-            $0.size.equalTo(50)
-        }
         
         testWrapperView.addSubview(testView)
     }
