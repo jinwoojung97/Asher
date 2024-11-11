@@ -13,7 +13,7 @@ struct TalkListView: View {
             inspectionView
                 .background(.main1)
         } else {
-            Button(action: {NavigationManager.shared.push(TalkRepresentable())}, label: {
+            Button(action: {NavigationManager.shared.push(TalkRepresentable().ignoresSafeArea())}, label: {
                 /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
             })
         }

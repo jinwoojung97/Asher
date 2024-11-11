@@ -17,18 +17,19 @@ class ChatInputView: UIView {
     var viewModel: ChatInputViewModel!
 
     let containerView = UIView().then {
+        $0.backgroundColor = .textView
         $0.layer.cornerRadius = 6
     }
     
     var sendMessageButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "gear"), for: .normal)
+        $0.setImage(.sendButton, for: .normal)
     }
     
     var placeholder = UILabel().then {
         $0.text = "채팅 입력하기"
-//        $0.font = .systemFont(ofSize: ., weight: <#T##UIFont.Weight#>)
+        $0.font = .notoSans(width: .regular, size: 16)
         $0.tag = 1
-        $0.textColor = .gray
+        $0.textColor = .placeholder
     }
     
     lazy var textView = UITextView().then {
@@ -37,9 +38,10 @@ class ChatInputView: UIView {
         $0.tintColor = .black
         $0.textAlignment = .left
         $0.backgroundColor = .clear
-        $0.textColor = .main1
-//        $0.font = FontManager.shared.suit(.medium, 12)
-        $0.textContainerInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 2)
+        $0.textColor = .white
+        $0.tintColor = .white
+        $0.font = .notoSans(width: .regular, size: 16)
+        $0.textContainerInset = UIEdgeInsets(top: 4, left: 0, bottom: 2, right: 2)
     }
     
     override init(frame: CGRect) {
@@ -58,7 +60,6 @@ class ChatInputView: UIView {
     }
     
     private func addComponent() {
-        self.backgroundColor = .subtitleOn
         [containerView, sendMessageButton].forEach(addSubview)
         
         [textView].forEach(containerView.addSubview)
@@ -68,22 +69,23 @@ class ChatInputView: UIView {
     
     private func setConstraints() {
         containerView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
+            $0.top.equalToSuperview().inset(4)
+            $0.bottom.equalToSuperview().inset(6)
             $0.left.equalToSuperview().inset(10)
             $0.right.equalToSuperview().inset(63)
             $0.height.lessThanOrEqualTo(100)
         }
         
         sendMessageButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(4)
-            $0.right.equalToSuperview()
-            $0.size.equalTo(40)
-            
+            $0.bottom.equalToSuperview().inset(8)
+            $0.right.equalToSuperview().inset(16)
+            $0.size.equalTo(32)
         }
         
         textView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(2)
+            $0.top.bottom.equalToSuperview()
             $0.left.right.equalToSuperview().inset(5)
+            $0.height.greaterThanOrEqualTo(40)
         }
         
         placeholder.snp.makeConstraints {
@@ -101,9 +103,13 @@ class ChatInputView: UIView {
         textView.rx.text
             .withUnretained(self)
             .bind { owner, text in
-                owner.textView.isScrollEnabled = owner.textView.numberOfLine > 5
+                owner.textView.isScrollEnabled = owner.textView.numberOfLine > 2
                 owner.placeholder.isHidden = text?.isEmpty == false
             }.disposed(by: disposeBag)
+        
+        viewModel.output?.toastMessgae
+            .drive { message in Toast.shared.present(toastItem: ToastItem(title: message)) }
+            .disposed(by: disposeBag)
     }
     
     deinit {
@@ -116,6 +122,6 @@ extension UITextView {
         let size = CGSize(width: frame.width, height: .infinity)
         let estimatedSize = sizeThatFits(size)
         
-        return Int(estimatedSize.height / (self.font?.lineHeight ?? 12)) - 1
+        return Int((estimatedSize.height) / (font?.lineHeight ?? 12)) - 1
     }
 }

@@ -18,6 +18,7 @@
 		EF07A5B72CE1A1F300E1780B /* TalkViewController + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */; };
 		EF07A5B92CE1CA1E00E1780B /* ChatInputVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B82CE1CA1E00E1780B /* ChatInputVIewModel.swift */; };
 		EF07A5BE2CE1CD7100E1780B /* API.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF07A5BD2CE1CD7100E1780B /* API.plist */; };
+		EF07A5C02CE20DDC00E1780B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5BF2CE20DDC00E1780B /* MessageCell.swift */; };
 		EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */; };
 		EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */; };
 		EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDF2C1C1F47004D1AA1 /* View +.swift */; };
@@ -127,6 +128,7 @@
 		EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TalkViewController + Keyboard.swift"; sourceTree = "<group>"; };
 		EF07A5B82CE1CA1E00E1780B /* ChatInputVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputVIewModel.swift; sourceTree = "<group>"; };
 		EF07A5BD2CE1CD7100E1780B /* API.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API.plist; sourceTree = "<group>"; };
+		EF07A5BF2CE20DDC00E1780B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTabbar + Tab.swift"; sourceTree = "<group>"; };
 		EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		EF16DDDF2C1C1F47004D1AA1 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4530D22C47883C00FA5668 /* TalkView.swift */,
+				EF07A5BF2CE20DDC00E1780B /* MessageCell.swift */,
 				EF4530D62C49080900FA5668 /* TalkViewController.swift */,
 				EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */,
 				EF07A5BA2CE1CA2300E1780B /* ChatInput */,
@@ -695,6 +698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF56BBD62C16DDD40045394F /* Encodable +.swift in Sources */,
+				EF07A5C02CE20DDC00E1780B /* MessageCell.swift in Sources */,
 				EBA0BD6E2C3008B7005EEC18 /* NotificationSettingView.swift in Sources */,
 				EF81E46E2C210BDA00B11A46 /* Home + Const.swift in Sources */,
 				EF0166092C2E818700E40192 /* Throttler.swift in Sources */,
