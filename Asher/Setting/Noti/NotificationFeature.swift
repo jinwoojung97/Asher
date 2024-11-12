@@ -91,8 +91,8 @@ struct NotificationFeature: Reducer {
   private func getContent() -> UNMutableNotificationContent {
       let notiContent = UNMutableNotificationContent()
       
-      notiContent.title = "타이틀 입니당"
-      notiContent.body = "메세지입니당"
+      notiContent.title = "오늘 기분을 같이 체크해봐요 😀"
+      notiContent.body = "오늘도 당신은 빛나요"
       notiContent.userInfo = ["targetScene": "splash"] // 푸시 받을때 오는 데이터
       
       return notiContent

@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct QuoteScrollView: View {
-  @State private var items: [Quote] = [Quote(title: "행복은 습관이다, 그것을 몸에 지니라", artist: "추", isFavorite: false),
-                                       Quote(title: "너 자신을 알라", artist: "소크라테스", isFavorite: false),
-                                       Quote(title: "행복은 습관이다, 그것을 몸에 지니라", artist: "허버트", isFavorite: false),
-                                       Quote(title: "가장 큰 영광은 한 번도 실패하지 않음이 아니라, 실패할 때마다 다시 일어서는 데 있다", artist: "공자", isFavorite: false),
-                                       Quote(title: "당신이 할 수 있다고 믿든, 할 수 없다고 믿든, 믿는 대로 될 것이다", artist: "헨리 포드", isFavorite: false),
-                                       Quote(title: "삶이 있는 한 희망은 있다", artist: "키케로", isFavorite: false),
-                                       Quote(title: "산다는 것은 끊임없이 태어나는 것이다", artist: "괴테", isFavorite: false),
-                                       Quote(title: "지금이야말로 당신이 마음먹기에 달려 있다", artist: "프란시스 베이컨", isFavorite: false),
-                                       Quote(title: "행동은 모든 성공의 가장 기초적인 열쇠이다", artist: "파블로 피카소", isFavorite: false),
-                                       Quote(title: "기회는 일어나는 것이 아니라 만들어내는 것이다", artist: "크리스 그로서", isFavorite: false),
-                                       Quote(title: "위대한 일을 이루려면 우리는 행동할 뿐 아니라 꿈꾸어야 하고, 계획할 뿐 아니라 믿어야 한다", artist: "아나톨 프랑스", isFavorite: false),
-                                       ]
+
+  @State private var items: [Quote] = [
+    Quote(title: "숲", artist: "최유리", isFavorite: false),
+    Quote(title: "기억을 걷는 시간", artist: "넬", isFavorite: false),
+    Quote(title: "나아지지 않는 날 데리고 산다는 건", artist: "밍기뉴", isFavorite: false),
+    Quote(title: "나의 모든 이들에게", artist: "밍기뉴", isFavorite: false),
+    Quote(title: "Anti-Hero", artist: "Taylor Swift", isFavorite: false),
+    Quote(title: "뜨거워지자", artist: "H1-KEY", isFavorite: false),
+    Quote(title: "야경", artist: "터치드", isFavorite: false),
+  ]
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {

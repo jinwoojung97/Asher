@@ -19,8 +19,9 @@
 		EF07A5B52CE1920700E1780B /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B42CE1920700E1780B /* ChatInputView.swift */; };
 		EF07A5B72CE1A1F300E1780B /* TalkViewController + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */; };
 		EF07A5B92CE1CA1E00E1780B /* ChatInputVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5B82CE1CA1E00E1780B /* ChatInputVIewModel.swift */; };
-		EF07A5BE2CE1CD7100E1780B /* API.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF07A5BD2CE1CD7100E1780B /* API.plist */; };
 		EF07A5C02CE20DDC00E1780B /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF07A5BF2CE20DDC00E1780B /* MessageCell.swift */; };
+		EF151B252CE2DC7F00FCDF27 /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EF151B242CE2DC7F00FCDF27 /* ChatGPTSwift */; };
+		EF151B272CE2E0A300FCDF27 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF151B262CE2E0A300FCDF27 /* Keys.plist */; };
 		EF16DDDB2C1AD539004D1AA1 /* CustomTabbar + Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */; };
 		EF16DDDD2C1AE9B9004D1AA1 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */; };
 		EF16DDE02C1C1F47004D1AA1 /* View +.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF16DDDF2C1C1F47004D1AA1 /* View +.swift */; };
@@ -131,8 +132,8 @@
 		EF07A5B42CE1920700E1780B /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
 		EF07A5B62CE1A1F300E1780B /* TalkViewController + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TalkViewController + Keyboard.swift"; sourceTree = "<group>"; };
 		EF07A5B82CE1CA1E00E1780B /* ChatInputVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputVIewModel.swift; sourceTree = "<group>"; };
-		EF07A5BD2CE1CD7100E1780B /* API.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = API.plist; sourceTree = "<group>"; };
 		EF07A5BF2CE20DDC00E1780B /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		EF151B262CE2E0A300FCDF27 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		EF16DDDA2C1AD539004D1AA1 /* CustomTabbar + Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomTabbar + Tab.swift"; sourceTree = "<group>"; };
 		EF16DDDC2C1AE9B9004D1AA1 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		EF16DDDF2C1C1F47004D1AA1 /* View +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View +.swift"; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 				EF31A3562C4DEDA600C5817C /* FirebaseCrashlytics in Frameworks */,
 				EF3C75522C12E1C4002E58D3 /* ComposableArchitecture in Frameworks */,
 				EF7775F92C9014A8009476A4 /* ComposableArchitecture in Frameworks */,
+				EF151B252CE2DC7F00FCDF27 /* ChatGPTSwift in Frameworks */,
 				EF31A3542C4DEDA600C5817C /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,7 +467,7 @@
 				EF3C75482C12DA74002E58D3 /* Info.plist */,
 				EF2C946E2C16C7F4003B2304 /* Font */,
 				EF3C75422C12DA74002E58D3 /* Assets.xcassets */,
-				EF07A5BD2CE1CD7100E1780B /* API.plist */,
+				EF151B262CE2E0A300FCDF27 /* Keys.plist */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -604,6 +606,7 @@
 				EF31A3592C4DEDA600C5817C /* FirebaseRemoteConfig */,
 				EF7775F82C9014A8009476A4 /* ComposableArchitecture */,
 				EF7776002C941B22009476A4 /* Alamofire */,
+				EF151B242CE2DC7F00FCDF27 /* ChatGPTSwift */,
 			);
 			productName = Asher;
 			productReference = EF3C75392C12DA73002E58D3 /* Asher.app */;
@@ -642,6 +645,7 @@
 				EFF7B3952C3FB8B600E84D8B /* XCRemoteSwiftPackageReference "Charts" */,
 				EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				EF7775FF2C941B22009476A4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EF151B232CE2DC7F00FCDF27 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
 			);
 			productRefGroup = EF3C753A2C12DA73002E58D3 /* Products */;
 			projectDirPath = "";
@@ -661,6 +665,7 @@
 				EF2C947E2C16CB24003B2304 /* NotoSansKR-SemiBold.ttf in Resources */,
 				EF2C94872C16CDC7003B2304 /* NotoSansKR-Bold.ttf in Resources */,
 				EF2C94802C16CB24003B2304 /* NotoSansKR-Regular.ttf in Resources */,
+				EF151B272CE2E0A300FCDF27 /* Keys.plist in Resources */,
 				EF2C94842C16CB24003B2304 /* NotoSansKR-ExtraLight.ttf in Resources */,
 				EF31A35D2C4DF50F00C5817C /* GoogleService-Info.plist in Resources */,
 				EF3C75462C12DA74002E58D3 /* Preview Assets.xcassets in Resources */,
@@ -998,6 +1003,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EF151B232CE2DC7F00FCDF27 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.3;
+			};
+		};
 		EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1065,6 +1078,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EF151B242CE2DC7F00FCDF27 /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF151B232CE2DC7F00FCDF27 /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
 		EF31A3532C4DEDA600C5817C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EF31A3522C4DEDA600C5817C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

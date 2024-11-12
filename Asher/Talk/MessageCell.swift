@@ -63,6 +63,8 @@ final class TestCell: UITableViewCell {
         testView.text = message.content
         testView.textColor = message.isReply ? .yourChatFont: .white
         
+        testWrapperView.snp.removeConstraints()
+        
         testWrapperView.snp.makeConstraints {
             let targetConstriant = message.isReply ? $0.left: $0.right
             

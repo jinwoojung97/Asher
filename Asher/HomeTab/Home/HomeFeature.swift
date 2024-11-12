@@ -202,7 +202,7 @@ struct HomeFeature: Reducer {
     let items = getCurrentItems()
     let newItem = Item(date: Date.now.toString(), mood: mood)
     
-    if items.count > 2 {  } //썌얘: Toast 보여주기
+    if items.count > 2 { Toast.shared.present(toastItem: ToastItem(title: "기분을 모두 입력했어요")) }
     else { DatabaseManager.shared.addItem(newItem) }
   }
   

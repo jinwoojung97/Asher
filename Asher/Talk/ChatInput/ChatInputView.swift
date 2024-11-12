@@ -38,8 +38,8 @@ class ChatInputView: UIView {
         $0.tintColor = .black
         $0.textAlignment = .left
         $0.backgroundColor = .clear
-        $0.textColor = .white
-        $0.tintColor = .white
+        $0.textColor = .yourChatFont
+        $0.tintColor = .yourChatFont
         $0.font = .notoSans(width: .regular, size: 16)
         $0.textContainerInset = UIEdgeInsets(top: 4, left: 0, bottom: 2, right: 2)
     }

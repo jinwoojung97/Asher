@@ -17,24 +17,24 @@ public enum LockType {
     var title: String {
         switch self {
         case .normal, .newPassword, .checkPassword, .enterLockScreen:
-            return I18N.enterPassword
+            return "암호 입력"
         case .changePassword:
-            return I18N.enterNewPassword
+            return "암호 변경"
         }
     }
     
     var subtitle: String {
         switch self {
         case .normal, .newPassword, .enterLockScreen:
-            return I18N.enterPasswordSubtitle
+            return "암호를 입력해 주세요."
         case .changePassword:
-            return I18N.enterNewPasswordSubtitle
+            return "새로운 암호를 입력해 주세요."
         case .checkPassword:
-            return I18N.enterPasswordAgain
+            return "다시 암호를 입력해 주세요."
         }
     }
     
-    var invalidText: String { I18N.passwordErrorSubtitle }
+    var invalidText: String { "암호가 일치하지 않습니다.\n 다시 입려해 주세요." }
     
     var pads: [[PadView.PadType]] {
         return [[.number(1), .number(2), .number(3)],
